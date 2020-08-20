@@ -1,37 +1,40 @@
 <html>
 <head>
     <title>User Management</title>
-    <style><%@include file="./css/login.css"%></style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style><%@include file="./css/login.css"%>
+    </style>
+
 </head>
 <body>
+
+
 <div class="container">
     <div class="login-form">
         <div>
-            <img src="resources/mi-logo.jpg">
+            <img src="resource/mi.jpeg">
             <p>Login to your account</p>
         </div>
         <form action="AdminController" method="post">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="  Username" name="username" required="required">
+                <input type="text" class="form-control" placeholder="   Username" name="username" required="required"
+                       pattern="^[A-Z].{6,}$">
             </div><br/>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="  Password" name="userpass" required="required">
+                <input type="password" class="form-control" placeholder="  Password" name="password" required="required"
+                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
             </div><br/>
-            <br />
-            <div class="reminde">
+            <div class="reminder">
                 <label class="switch1">
-                    <input class="check-box" type="checkbox">
+                    <input style="height: 15px" class="check-box" type="checkbox">
                     <span class="slider round"></span>
                 </label>
                 <span>Remember Me</span>
             </div>
-            <br />
-            <br />
-            <button type="submit">LOGIN</button>
+            <button  type="submit">LOGIN</button>
         </form>
         <i class="fa fa-lock" style="margin-left: -140px"></i>
-        <a href="forgotPassword.jsp" style="margin-top: -14px">Forgot Password?</a>
+        <a  style="margin-top: -15px" href="forgotPassword.jsp">Forgot Password?</a>
     </div>
     <div class="app-name">
         <div class="heading">
