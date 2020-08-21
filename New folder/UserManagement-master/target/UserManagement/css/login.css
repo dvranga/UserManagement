@@ -1,0 +1,129 @@
+body {
+    background-color: #F5F6F9;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    color: #5e6773;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    height: 60%;
+    margin: 60px;
+    width: 80%;
+    margin-top: 10%;
+    margin-left: 10%;
+}
+
+.login-form {
+    float: left;
+    width: 40%;
+    text-align: center;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+img {
+    border-radius: 50%;
+    border: 1px solid burlywood;
+
+}
+
+input {
+    width: 80%;
+    height: 40px;
+}
+
+button {
+    width: 80%;
+    height: 50px;
+    background-color: #00AAFF;
+    color: #FFFFFF;
+    outline: white;
+}
+
+a {
+    text-decoration: none;
+    color: #00AAFF;
+}
+
+.app-name {
+    width: 50%;
+    opacity: 0.5;
+    background: rgba(99, 156, 185, 0.92);
+    background-image: url("images/background.jpeg");
+
+}
+.heading {
+    margin-left: 5%;
+    margin-top: 30%;
+    color: black;
+    font-size: 12px;
+    font-weight: 300;
+    font-family: sans-serif;
+}
+.switch1 {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 50px;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 13px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+    height: 25px;
+    width: 45px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+    height: 18px;
+}
+.reminde{
+    margin-top: -10px;
+}
+

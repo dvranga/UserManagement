@@ -1,0 +1,73 @@
+body {
+    background-color: #F5F6F9;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    color: #5e6773;
+}
+
+.container {
+    height:8%;
+    background-color: dodgerblue;
+
+}
+.column-header {
+    color: white;
+    font-weight: normal;
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-left: 30px;
+    padding-top: 15px;
+    cursor: pointer;
+}
+
+.dropbtn {
+    text-align: right;
+    color: white;
+    font-weight: normal;
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-top: -20px;
+    cursor: pointer;
+    margin-left: 0px;
+}
+
+.dropdown {
+    position: absolute;
+    margin-left: 1400px;
+}
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    width: 100px;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: white;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.welcome-dev{
+    background-color: #FFFFFF;
+    height: 100px;
+
+}
+.welcome-admin{
+    margin-left: 10px;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    font-size: 20px;
+    margin-left: 30px;
+    padding-top: 15px;
+    cursor: pointer;
+
+}
