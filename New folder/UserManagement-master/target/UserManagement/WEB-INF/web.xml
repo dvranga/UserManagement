@@ -5,28 +5,46 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
         version="2.5">
-  <servlet>
-    <servlet-name>login</servlet-name>
-    <servlet-class>com.usermanagement.controller.AdminController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>login</servlet-name>
-    <url-pattern>/AdminController</url-pattern>
-  </servlet-mapping>
+    <servlet>
+        <servlet-name>login</servlet-name>
+        <servlet-class>com.usermanagement.controller.AdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>login</servlet-name>
+        <url-pattern>/AdminController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>forgotpassword</servlet-name>
+        <url-pattern>/forgotPasswordController</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+        <servlet-name>forgotpassword</servlet-name>
+        <servlet-class>com.usermanagement.controller.ForgotPasswordController</servlet-class>
+    </servlet>
 
-  <servlet-mapping>
-    <servlet-name>forgotpassword</servlet-name>
-    <url-pattern>/forgotPasswordController</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>forgotpassword</servlet-name>
-    <servlet-class>com.usermanagement.controller.ForgotPasswordController</servlet-class>
-  </servlet>
+    <context-param>
+        <param-name>host</param-name>
+        <param-value>smtp.gmail.com</param-value>
+    </context-param>
 
-
-
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
+    <context-param>
+        <param-name>port</param-name>
+        <param-value>587</param-value>
+    </context-param>
+    <context-param>
+        <param-name>email</param-name>
+        <param-value>devangmranganath@gmail.com</param-value>
+    </context-param>
+    <context-param>
+        <param-name>name</param-name>
+        <param-value>Ranganath</param-value>
+    </context-param>
+    <context-param>
+        <param-name>pass</param-name>
+        <param-value>Ranga@0107</param-value>
+    </context-param>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

@@ -1,6 +1,6 @@
 package com.usermanagement.dao;
 
-import com.usermanagement.connections.DataBaseConnection;
+import com.usermanagement.configurations.DataBaseConfiguration;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -9,14 +9,13 @@ import java.sql.SQLException;
 
 public class ForgotPasswordDao {
 
-    public static String getPassword(String UserName, String email) throws IOException {
+    public static String getPassword(String email) throws IOException {
 
-        DataBaseConnection connection=new DataBaseConnection();
+        DataBaseConfiguration connection=new DataBaseConfiguration();
         String  password=null;
         try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement("select password from user_details where user_name=? and email=?");
-            preparedStatement.setString(1, UserName);
-            preparedStatement.setString(2, email);
+            PreparedStatement preparedStatement = connection.getConnection().prepareStatement("select password from user_details where  email=?");
+            preparedStatement.setString(1, email);
             ResultSet resultSet= preparedStatement.executeQuery();
             while (resultSet.next()){
                 password=resultSet.getString(1);
