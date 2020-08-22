@@ -1,6 +1,6 @@
 package com.usermanagement.dao;
 
-import com.usermanagement.connections.DBConnection;
+import com.usermanagement.connections.DataBaseConnection;
 
 import java.io.IOException;
 import java.sql.*;
@@ -9,7 +9,7 @@ public class LoginDao {
 
     public static boolean validate(String name, String pass) {
 
-       DBConnection connection=new DBConnection();
+       DataBaseConnection connection=new DataBaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.getConnection().prepareStatement("select * from user_details where user_name=? and password=?");

@@ -1,13 +1,8 @@
-body {
-    background-color: #F5F6F9;
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    color: #5e6773;
-}
 
 .container {
     height:8%;
     background-color: dodgerblue;
+    margin-left: -2px;
 
 }
 .column-header {
@@ -56,18 +51,105 @@ body {
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.welcome-dev{
-    background-color: #FFFFFF;
-    height: 100px;
+body {
+    font-family: "Lato", sans-serif;
+}
+.open-button {
+    color: white;
+    margin-left: 220px;
+    cursor: pointer;
+    margin-top: -20px;
+    border-width: 0px;
+    background-color: dodgerblue;
+    size: 20px;
 
 }
-.welcome-admin{
-    margin-left: 10px;
-    font-family: "Roboto", sans-serif;
-    font-weight: normal;
-    font-size: 20px;
-    margin-left: 30px;
+
+.sidenav {
+    margin-top: 62px;
+    height: 90%;
+    width: 0;
+    position: fixed;
+    z-index: 9;
+    float: left;
+    top: 0;
+    left: 0;
+    background-color: #2B333E;
+    overflow-x: hidden;
+    overflow-y: auto;
     padding-top: 15px;
+    margin-left: 6px;
+}
+
+.sidenav a {
+    color: #d6e1f1;
+    padding: 24px 24px;
+    font-family: sans-serif;
+    padding-top: 10px;
+    display: block;
+    text-align: -webkit-match-parent;
+    box-sizing: border-box;
+}
+
+.sidenav a:hover {
+
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
     cursor: pointer;
+    outline: none;
+}
+.sidenav a:hover, .dropdown-btn:hover {
+    color: #f1f1f1;
+}
+
+.sidenav a, .dropdown-user {
+    padding: 15px 15px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #d6e1f1;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+
+}
+.sidenav a:hover, .dropdown-user:hover {
+    background-color: #5e6773;
+}
+.dropdown-content{
+    margin-left: 20px;
+}
+.user-container {
+    margin-left: 20px;
+    font-size: 10px;
+    font-weight: lighter;
+    display: none;
+    padding: 5px 2px;
 
 }

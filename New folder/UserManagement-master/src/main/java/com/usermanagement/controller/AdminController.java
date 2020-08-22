@@ -33,7 +33,7 @@ public class AdminController extends HttpServlet {
             rd.forward(request,response);
         }
         else{
-            out.print("<p style=\"color:white;background-color:dodgerblue;width:225px;margin-left:580px;height:30px\">Sorry username or password error</p>");
+           out.print("<p style=\"color:white;background-color:dodgerblue;width:225px;margin-left:580px;height:30px\">Sorry username or password error</p>");
             RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
             rd.include(request,response);
         }

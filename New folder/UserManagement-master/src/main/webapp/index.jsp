@@ -31,12 +31,12 @@
                 </label>
                 <span>Remember Me</span>
             </div>
-            <button  type="submit">LOGIN</button>
+            <input type="submit" name="login" value="LOGIN" class="btn btn-primary btn-lg btn-block">
         </form>
         <i class="fa fa-lock" style="margin-left: -140px"></i>
         <a  style="margin-top: -15px" href="forgotPassword.jsp">Forgot Password?</a>
     </div>
-    <div class="app-name" >
+    <div class="app-name">
         <div class="heading">
             <h1>User Management</h1>
             <h2>Version 2.2</h2>
@@ -46,3 +46,8 @@
 </div>
 </body>
 </html>
+
+
+
+
+
