@@ -23,8 +23,8 @@
                            class="btn btn-primary btn-lg btn-block">
                 </form>
                 <p class="endTag">Know your password?</p>&nbsp;
-                <div>
-                    <button class="loginButton">Login</button>
+                <div class="loginButton">
+                    <a href="index.jsp" >Login</a>
                 </div>
             </div>
         </div></body>

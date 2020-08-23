@@ -1,0 +1,92 @@
+body {
+    background-color: #F5F6F9;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    color: #5e6773;
+}
+.title {
+    height:12%;
+    background-color: #FFFFFF;
+    margin-left: -2px;
+    border: 1px solid #d1d6e6;
+
+}
+.title-name {
+    color: #5e6773;
+    font-weight: normal;
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-left: 30px;
+    padding-top: 15px;
+}
+.home{
+    margin-top: -3%;
+    margin-left: 20%;
+}
+.home-icon{
+    margin-left: 85%;
+    margin-top: -2%;
+}
+.color{
+    color: #00AAFF;
+}
+.fa-home:before {
+    content: "\f015";
+    margin-left: -40%;
+}
+.new-user{
+    height: 100%;
+    background-color: white;
+    width: 65%;
+    margin-left: 1%;
+    margin-top: 5%;
+    border: 1px solid #d1d6e6;
+}
+.web-page-header{
+    margin-left: 3%;
+    margin-top: 1%;
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 500;
+    color: #717d84;
+}
+.table-no-border{
+    width: 400px;
+    margin-left: 1%;
+    margin-top: 4%;
+    border-spacing: 8px;
+}
+.permissions{
+    height: 60%;
+    background-color: white;
+    width: 65%;
+    margin-left: 1%;
+    margin-top: 2%;
+    border: 1px solid #d1d6e6;
+}
+.permission-header{
+    margin-left: 3%;
+    margin-top: 1%;
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 500;
+    color: #717d84;
+}
+.submit{
+    background-color: #00AAFF;
+    border-color: #00a0f0;
+    border-radius: 3px;
+    padding: 6px 22px;
+    color: #fff;
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+}
