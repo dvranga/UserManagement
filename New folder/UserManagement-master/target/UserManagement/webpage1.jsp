@@ -10,6 +10,7 @@
     </style>
 </head>
 <body class="body">
+<div class="main">
 <div class="title">
     <div class="title-name">Webpages1</div>
     <div class="sub-title">Permissions granted for webpages 1</div>
@@ -31,7 +32,7 @@
             <td>
                 <div class="reminder">
                     <label class="switch1">
-                        <input style="height: 15px" class="check-box" type="checkbox">
+                        <input style="height: 15px" class="check-box" type="checkbox" checked>
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -45,7 +46,7 @@
             <td>
                 <div class="reminder">
                     <label class="switch1">
-                        <input style="height: 15px" class="check-box" type="checkbox">
+                        <input style="height: 15px" class="check-box" type="checkbox" checked>
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -60,7 +61,7 @@
             <td>
                 <div class="reminder">
                     <label class="switch1">
-                        <input style="height: 15px" class="check-box" type="checkbox">
+                        <input style="height: 15px" class="check-box" type="checkbox" checked>
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -75,7 +76,7 @@
             <td>
                 <div class="reminder">
                     <label class="switch1">
-                        <input style="height: 15px" class="check-box" type="checkbox">
+                        <input style="height: 15px" class="check-box" type="checkbox" checked>
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -83,6 +84,7 @@
         </tr>
         </tbody>
     </table>
+</div>
 </div>
 </div>
 </body>

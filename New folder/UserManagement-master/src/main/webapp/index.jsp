@@ -26,7 +26,7 @@
             </div><br/>
             <div class="reminder">
                 <label class="switch1">
-                    <input style="height: 15px" class="check-box" type="checkbox">
+                    <input style="height: 15px" class="check-box" type="checkbox" checked>
                     <span class="slider round"></span>
                 </label>
                 <span>Remember Me</span>

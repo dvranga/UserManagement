@@ -36,7 +36,7 @@
         <i class="fa fa-caret-left"></i>
     </button>
     <div class="user-container">
-        <a href="#">Authentication</a>
+        <a href="authentication.jsp">Authentication</a>
         <a href="#">Email&nbsp;SMTP</a>
         <a href="#">Database&nbsp;Connection</a>
     </div>

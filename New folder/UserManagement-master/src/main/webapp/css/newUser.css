@@ -89,13 +89,15 @@ body {
     white-space: nowrap;
     vertical-align: middle;
     border: 1px solid transparent;
+    margin-left: 10%;
 }
 .reset{
-    background-color: #00AAFF;
-    border-color: #00a0f0;
+    margin-left:4%;
+    color: #5e6773;
+    border-color: #e4e4e4;
+    background-color: #e4e4e4;
     border-radius: 3px;
     padding: 6px 22px;
-    color: #fff;
     display: inline-block;
     margin-bottom: 0;
     font-size: 14px;
@@ -105,4 +107,8 @@ body {
     white-space: nowrap;
     vertical-align: middle;
     border: 1px solid transparent;
+}
+.text-center{
+    margin-left: 40%;
+    margin-top: 2%;
 }
