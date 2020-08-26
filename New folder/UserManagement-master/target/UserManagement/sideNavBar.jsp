@@ -40,7 +40,7 @@
         <a href="#">Email&nbsp;SMTP</a>
         <a href="#">Database&nbsp;Connection</a>
     </div>
-    <a href="logout"><i class="ti-power-off"></i>&nbsp;&nbsp;Logout</a>
+    <a href="logout.jsp"><i class="ti-power-off"></i>&nbsp;&nbsp;Logout</a>
 </div>
 
 <script>

@@ -10,7 +10,8 @@
     </style>
 </head>
 <body class="body">
-<div class="main">
+<div class="main" id="main-content">
+
 <div class="title">
     <div class="title-name">Webpages1</div>
     <div class="sub-title">Permissions granted for webpages 1</div>

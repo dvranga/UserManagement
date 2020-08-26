@@ -22,10 +22,7 @@
                     <input type="submit" name="email" value="RECOVER PASSWORD"
                            class="btn btn-primary btn-lg btn-block">
                 </form>
-                <p class="endTag">Know your password?</p>&nbsp;
-                <div class="loginButton">
-                    <a href="index.jsp" >Login</a>
-                </div>
+                <div class="endTag">Know your password? &nbsp;<a href="login.jsp" >Login</a></div>&nbsp;
             </div>
         </div></body>
 </html>

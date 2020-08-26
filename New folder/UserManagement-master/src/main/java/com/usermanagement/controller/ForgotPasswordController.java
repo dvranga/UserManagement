@@ -36,14 +36,14 @@ public class ForgotPasswordController extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
         String usermail=request.getParameter("email");
-        String subject = "Your Password has been reset";
+        String subject = "Your Password has been sent";
         String password= ForgotPasswordDao.getPassword(usermail);
-        String content = "Hi, this is your  password: " + password;
+        String content = " this is your  password: " + password;
         content += "\nNote: for security reason, "+ "you must change your password after logging in.";
         String message = "";
         try {
             EmailUtility.sendEmail(host, port, email, name, pass, usermail, subject, content);
-            message = "Your password has been reset. Please check your e-mail.";
+            message = "Your password has been sent. Please check your e-mail.";
         } catch (Exception ex) {
             ex.printStackTrace();
             message = "There were an error: " + ex.getMessage();

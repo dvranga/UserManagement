@@ -10,6 +10,7 @@
     </style>
 </head>
 <body class="body">
+<div class="main" id="main-content">
 <div class="title">
     <div class="title-name">Webpages2</div>
     <div class="sub-title">Permissions granted for webpages 2</div>
@@ -83,6 +84,7 @@
         </tr>
         </tbody>
     </table>
+</div>
 </div>
 </div>
 </body>

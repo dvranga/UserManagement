@@ -10,6 +10,7 @@
     </style>
 </head>
 <body class="body">
+<div class="main" id="main-content">
 <div class="title">
     <div class="title-name">Authentication</div>
 </div>
@@ -96,6 +97,7 @@
         </div>
     </div>
 
+</div>
 </div>
 </body>
 </html>

@@ -34,7 +34,7 @@ public class AdminController extends HttpServlet {
         }
         else{
            out.print("<p style=\"color:white;background-color:dodgerblue;width:225px;margin-left:580px;height:30px\">Sorry username or password error</p>");
-            RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
+            RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
             rd.include(request,response);
         }
         out.close();
