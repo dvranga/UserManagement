@@ -1,27 +1,66 @@
-.title {
-    height:12%;
-    background-color: #FFFFFF;
-    margin-left: -2px;
-    border: 1px solid #d1d6e6;
-
+.container {
+    height:9%;
+    background-color: dodgerblue;
+    display: flex;
+    width: 100%;
 }
-.title-name {
-    color: #5e6773;
+.column-header {
+    margin-top: 1%;
+    color: white;
     font-weight: normal;
     font-size: 20px;
     font-family: sans-serif;
-    margin-left: 30px;
-    padding-top: 15px;
+    cursor: pointer;
+    margin-left: 2%;
 }
 
-.home{
-    margin-top: -3%;
-    margin-left: 20%;
+.open-button {
+    color: white;
+    cursor: pointer;
+    background-color: dodgerblue;
+    size: 20px;
+    margin-top: 1.5%;
+    margin-left: 0%;
+    padding-left: 2%;
 }
-.home-icon{
-    margin-left: 85%;
-    margin-top: -2%;
+.user-name-container{
+    margin-left: 88%;
+    text-align: right;
+    position: absolute;
+    height: 9%;
+    width: 10%;
+
+
 }
-.color{
-    color: #00AAFF;
+.drop-button {
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 20%;
+}
+
+.dropdown-content {
+    margin-top: 10%;
+    padding-top: 2%;
+    display: none;
+    background-color: #f1f1f1;
+    width: 120%;
+    text-align: center;
+}
+
+.dropdown-content a {
+    color: #5e6773;
+    padding: 16px 2px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    font-weight:400 ;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.drop-button:hover .dropdown-content {display: block;}
+
+body {
+    font-family: "Lato", sans-serif;
 }

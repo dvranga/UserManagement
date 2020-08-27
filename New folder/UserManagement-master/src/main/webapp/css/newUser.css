@@ -1,6 +1,13 @@
 .main{
     margin-left: 16%;
 }
+
+.scroll-arrow{
+    overflow-scrolling: initial;
+}
+
+
+
 body {
     background-color: #F5F6F9;
     font-family: "Roboto", sans-serif;
@@ -13,7 +20,7 @@ body {
     margin-left: -2px;
     border: 1px solid #d1d6e6;
     display: flex;
-    margin-top: 1%;
+    margin-top: 0%;
 }
 .title-name {
     color: #5e6773;
@@ -44,13 +51,15 @@ body {
     display: flex;
 }
 .new-user{
-    height: 62%;
+    height: 64%;
     background-color: white;
     width: 65%;
     margin-left: 1%;
     margin-top: 5%;
     border: 1px solid #d1d6e6;
 }
+
+
 
 .table-no-border{
     width: 400px;
@@ -606,7 +615,7 @@ input[type="file"] {
     font-family: sans-serif;
     margin-left: 30px;
     padding-bottom: 15px;
-    margin-top: 11.5%;
+    margin-top: 6.5%;
 }
 .password{
     color: #a0aeba;
@@ -625,7 +634,7 @@ input[type="file"] {
     font-family: sans-serif;
     margin-left: -2%;
     padding-bottom: 15px;
-    margin-top: 6.5%;
+    margin-top: 3.5%;
 }
 
 
@@ -722,6 +731,7 @@ input[type="file"] {
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
-.ti-cloud-up{
-
+.cloud{
+    font-size: 250%;
+    margin-left: 36%;
 }

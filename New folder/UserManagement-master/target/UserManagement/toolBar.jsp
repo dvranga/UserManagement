@@ -1,49 +1,30 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
 <head>
-    <title>Tool Bar</title>
-    <style>
-       <%@include file="css/toolBar.css"%>
-    </style>
+    <title>User DashBoard</title>
+    <style><%@include file="css/toolBar.css"%></style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
-<body>
-    <div class="container">
-        <div class="column-header">User Management</div>
-        <button class="open-button" onclick="toggleNav()"><i class="ti-arrow-circle-left"></i></button>
-        <div class="dropdown">
-            <h4 class="dropbtn"><%=session.getAttribute("username")%></h4>
+<body style="margin: 0">
+<div class="container">
+
+    <div class="column-header">User Management</div>
+
+    <h5 class="open-button"  onclick="toggleNav()"><i class="ti-arrow-circle-left" id="toggleId"></i> </h5>
+    <div class="user-name-container">
+        <h4 class="drop-button">${username}
             <div class="dropdown-content">
-                <a href="#">Profile</a>
-                <a href="logout.jsp">Logout</a>
+                <a href="#"><i class="ti-user"></i>  Profile</a>
+                <a href="logout.jsp"><i class="ti-power-off"></i>  Logout</a>
             </div>
-        </div>
+
+        </h4
     </div>
-
-    <script>
-        function toggleNav(){
-            navSize = document.getElementById("mySidenav").style.width;
-            if (navSize == "250px") {
-                return closeNav();
-            }
-            return openNav();
-        }
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main-content").style.marginLeft="240px";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main-content").style.marginLeft="0px";
-        }
-
-    </script>
-
 </div>
-
-
-
-
-
+</div>
+</div>
+<%@include file="toggleFunction.jsp" %>
 </body>
 </html>

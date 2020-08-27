@@ -1,14 +1,23 @@
 <html>
 <head>
     <title>New User</title>
-    <jsp:include page="sideNavBar.jsp"></jsp:include>
-    <jsp:include page="toolBar.jsp"></jsp:include>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
     <style>
         <%@include file="css/newUser.css"%>
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css">
+
 </head>
-<body>
+<body >
+<form action="servlet/Register" method="post">
+    <jsp:include page="toolBar.jsp"></jsp:include>
+    <div class="main">
+<%--        display:flex/row/flex flow--%>
+<%--       side nav and content--%>
+    <jsp:include page="sideNavBar.jsp"></jsp:include>
+    </div>
+<div class="scroll-arrow">
 <div  class="main" id="new-user-main">
     <div class="title">
         <div class="title-name">New User</div>
@@ -38,17 +47,17 @@
                         <tr>
                             <td class="column-2-1">
                                 <div class="column21">
-                                    <input type="text" class="first-name-input">
+                                    <input type="text" name="firstName" class="first-name-input">
                                 </div>
                             </td>
                             <td class="column-2-2">
                                 <div class="column22">
-                                    <input type="text" class="middle-name-input">
+                                    <input type="text" name="middleName" class="middle-name-input">
                                 </div>
                             </td>
                             <td class="column-2-3">
                                 <div class="column23">
-                                    <input type="text" class="last-name-input">
+                                    <input type="text" name="lastName" class="last-name-input">
                                 </div>
                             </td>
                         </tr>
@@ -76,7 +85,7 @@
                         <tr >
                             <td class="column-date-of-birth-input">
                                 <div class="date-of-birth-input-column21">
-                                    <input type="date" id="start" class="date-of-birth-input" name="trip-start" min="1990-01-01" max="2020-12-31">
+                                    <input   name="dateOfBirth" placeholder="dd-mm-yyyy" type="date" id="start" class="date-of-birth-input"  min="1990-01-01" max="2020-12-31">
                                 </div>
                             </td>
                             <td class="column-middle-name-input">
@@ -113,12 +122,12 @@
                         <tr>
                             <td class="column-2-1">
                                 <div class="phoneinputcolumn21">
-                                    <input type="text" class="phoneinput">
+                                    <input type="text"  name="phone" class="phoneinput">
                                 </div>
                             </td>
                             <td class="column-2-2">
                                 <div class="phonecolumn22">
-                                    <input type="text" class="phoneinputcolumn22">
+                                    <input type="text" name="phone_Ext" class="phoneinputcolumn22">
                                 </div>
                             </td>
                         </tr>
@@ -133,12 +142,12 @@
                         <tr>
                             <td class="column-2-1">
                                 <div class="email-column21">
-                                    <input type="text" class="email-input">
+                                    <input type="text"  name="email" class="email-input">
                                 </div>
                             </td>
                             <td class="column-2-2">
                                 <div class="address-column22">
-                        <textarea rows = "5" cols = "50"  class="address-input" name = "description">
+                        <textarea rows = "5" cols = "50"  class="address-input" name = "address">
                             </textarea>
                                 </div>
                             </td>
@@ -161,17 +170,17 @@
                         <tr>
                             <td class="column-2-1">
                                 <div class="usernamecolumn21">
-                                    <input type="text" class="usernamecolumn21input">
+                                    <input type="text" name="userName" class="usernamecolumn21input">
                                 </div>
                             </td>
                             <td class="column-2-2">
                                 <div class="passwordcolumn22">
-                                    <input type="text" class="passwordcolumn22input">
+                                    <input type="text" name="password" class="passwordcolumn22input">
                                 </div>
                             </td>
                             <td class="column-2-3">
                                 <div class="conformpasswordcolumn23">
-                                    <input type="text" class="conformpasswordinput">
+                                    <input type="text" name="conformPassword" class="conformpasswordinput">
                                 </div>
                             </td>
                         </tr>
@@ -188,10 +197,10 @@
                         <tr >
                             <td class="column-date-of-birth-input">
                                 <div class="userrolecolumn21">
-                                    <select id="user-role" class="userrolecolumn21input" name="gender">
+                                    <select id="user-role" class="userrolecolumn21input" name="userRole">
                                         <option value="">Select</option>
-                                        <option value="Admin">Admin</option>
-                                        <option value="User">User</option>
+                                        <option value="1">Admin</option>
+                                        <option value="0">User</option>
                                     </select>
                                 </div>
                             </td>
@@ -202,6 +211,7 @@
             </div>
 
         </div>
+
         <div class="photo-container">
             <div class="photo-heading">Photo</div>
             <div class="acceptance">Acceptable image formats are jpg,jpeg,png & gif.</div>
@@ -209,13 +219,14 @@
             <div class="photo-input">
                 <label class="custom-file-upload">
                     <input type="file"/>
-                    <div class="ti-cloud-up">
+                    <div class="cloud">
                         <i class="ti-cloud-up"></i>
                     </div>
                     Click here to choose any image
                 </label>
             </div>
         </div>
+
     </div>
     <div class="permissions">
         <div class="permission-box">
@@ -290,28 +301,28 @@
     </div>
 
 </div>
-
 <script>
     function toggleNav(){
         navSize = document.getElementById("mySidenav").style.width;
-        if (navSize == "16%") {
+        if (navSize == "250px") {
             return closeNav();
         }
         return openNav();
     }
     function openNav() {
-        document.getElementById("mySidenav").style.width = "16%";
-        document.getElementById("new-user-main").style.marginLeft="16%";
-        document.getElementById("toggleId").className="ti-arrow-circle-left"
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main-content").style.marginLeft="240px";
     }
 
     function closeNav() {
-        document.getElementById("mySidenav").style.width = "0%";
-        document.getElementById("new-user-main").style.marginLeft="0%";
-        document.getElementById("toggleId").className="ti-arrow-circle-right"
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main-content").style.marginLeft="0px";
     }
 
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
+</div>
+</form>
 </body>
 </html>
