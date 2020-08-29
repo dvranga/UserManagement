@@ -1,4 +1,12 @@
 <html>
+<%@ page import="com.bridgelabz.usermanagement.model.User" %>
+<%
+    User user = (User)request.getAttribute("user");
+    String fullName = user.getFirstName();
+    if(user.getLastName()!=null){
+        fullName+=" "+user.getLastName();
+    }
+%>
 
 <head>
     <title>User Dashboard</title>
@@ -11,28 +19,40 @@
 <div class="main" id="main-content">
 
     <div class="content-heading ">
+        <div class="contain">
         <div class="left-heading">
             <div style="height: 50%;">
                 <p class="username">Welcome
-                    Ranganath Devangam
+                    <%=fullName%>
                 </p>
             </div>
-            <div style="height: 50%;">
-                <p class="page-subtitle">You are </p>
-            </div>
-
         </div>
-        <div class="right-heading">
-            <i class="fa fa-home"></i>
-            <a class="home" href="dashboard.jsp"> Home</a>
-            <a> / Dashboard</a>
         </div>
-
-
     </div>
 
 </div>
-<jsp:include page="toggleFunction.jsp"></jsp:include>
+
+<script>
+    function toggleNav(){
+        navSize = document.getElementById("mySidenav").style.width;
+        if (navSize == "16%") {
+            return closeNav();
+        }
+        return openNav();
+    }
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "16%";
+        document.getElementById("main-content").style.marginLeft="16%";
+        document.getElementById("toggleId").className="ti-arrow-circle-left"
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0%";
+        document.getElementById("main-content").style.marginLeft="0%";
+        document.getElementById("toggleId").className="ti-arrow-circle-right"
+    }
+
+</script>
 
 </body>
 </html>

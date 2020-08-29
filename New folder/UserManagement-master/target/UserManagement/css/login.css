@@ -53,11 +53,19 @@ a {
     width: 50%;
     background-image: url("images/background.jpeg");
     opacity: 0.5;
-
 }
+
+.image-color{
+    background-color: #6ca0bb;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
 .heading {
     margin-left: 5%;
-    margin-top: 30%;
+    margin-top: -3%;
     color: black;
     font-size: 12px;
     font-weight: 300;

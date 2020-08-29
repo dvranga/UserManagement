@@ -13,16 +13,16 @@
         <i class="fa fa-caret-left"></i>
     </button>
     <div class="user-container">
-        <a href=webpage1.jsp>WebPage  1</a>
-        <a href="webpage2.jsp">WebPage  2</a>
-        <a href="webpage3.jsp">WebPage  3</a>
+        <a href="dummy2">WebPage  1</a>
+        <a href="dummy">WebPage  2</a>
+        <a href="#">WebPage  3</a>
 
     </div>
     <button class="dropdown-user"><i class="ti-user"> </i>Users
         <i class="fa fa-caret-left"></i>
     </button>
     <div class="user-container">
-        <a href="newUser.jsp">New  User</a>
+        <a href="newUser">New  User</a>
         <a href="#">Users  List</a>
     </div>
     <a href="#"><i class="ti-id-badge"> </i>Profile</a>
@@ -30,7 +30,7 @@
         <i class="fa fa-caret-left"></i>
     </button>
     <div class="user-container">
-        <a href="authentication.jsp">Authentication</a>
+        <a href="authentication">Authentication</a>
         <a href="#">Email SMTP</a>
         <a href="#">Database Connection</a>
     </div>

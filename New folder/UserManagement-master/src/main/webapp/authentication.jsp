@@ -2,13 +2,13 @@
 <html>
 <head>
     <title>New User</title>
-    <jsp:include page="sideNavBar.jsp"></jsp:include>
-    <jsp:include page="toolBar.jsp"></jsp:include>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
     <style>
         <%@include file="css/authentication.css"%>
     </style>
 </head>
+<jsp:include page="toolBar.jsp"></jsp:include>
 <body class="body">
 <div class="main" id="main-content">
 <div class="title">

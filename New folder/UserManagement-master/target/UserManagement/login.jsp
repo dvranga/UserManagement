@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <style><%@include file="css/login.css"%>
     </style>
-
 </head>
 <body>
 
@@ -34,14 +33,15 @@
             <input type="submit" name="login" value="LOGIN" class="btn btn-primary btn-lg btn-block">
         </form>
         <i class="fa fa-lock" style="margin-left: -140px"></i>
-        <a  style="margin-top: -15px" href="forgotPassword.jsp">Forgot Password?</a>
+        <a  style="margin-top: -15px" href="forgotPassword">Forgot Password?</a>
     </div>
     <div class="app-name">
-        <div class="heading">
-            <h1>User Management</h1>
-            <h2>Version 2.2</h2>
+        <div class="image-color">
+            <div class="heading">
+                <h1>User Management</h1>
+                <h2>Version 2.2</h2>
+            </div>
         </div>
-
     </div>
 </div>
 </body>

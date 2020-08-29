@@ -1,26 +1,33 @@
 package com.bridgelabz.usermanagement.dao;
 
 import com.bridgelabz.usermanagement.configurations.DataBaseConfiguration;
+import com.bridgelabz.usermanagement.model.User;
 
 import java.io.IOException;
 import java.sql.*;
 
 public class LoginDao {
 
-    public static boolean validate(String name, String pass) {
+    public static User validate(User user) {
 
-       DataBaseConfiguration connection=new DataBaseConfiguration();
+        DataBaseConfiguration connection=new DataBaseConfiguration();
 
         try {
             PreparedStatement preparedStatement = connection.getConnection().prepareStatement("select * from user_details where user_name=? and password=?");
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, pass);
+            preparedStatement.setString(1, user.getUserName());
+            preparedStatement.setString(2, user.getPassword());
             ResultSet resultSet= preparedStatement.executeQuery();
-            return resultSet.next();
-        } catch (SQLException | IOException e) {
-            e.printStackTrace();
+            if(resultSet.next()){
+                user.setFirstName(resultSet.getString("first_name"));
+                user.setMiddleName(resultSet.getString("middle_name"));
+                user.setLastName(resultSet.getString("last_name"));
+            }
+        } catch (SQLException | IOException throwables) {
+            throwables.printStackTrace();
         }
-        return false;
+        return user;
     }
+
+
 
 }

@@ -2,6 +2,7 @@ package com.bridgelabz.usermanagement.controller;
 
 
 import com.bridgelabz.usermanagement.dao.LoginDao;
+import com.bridgelabz.usermanagement.model.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,21 +20,23 @@ public class AdminController extends HttpServlet {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        User user =new User();
 
-        String username=request.getParameter("username");
-        String password=request.getParameter("password");
+        user.setUserName(request.getParameter("username"));
+        user.setPassword(request.getParameter("password"));
 
         HttpSession session = request.getSession(true);
-        if(session!=null)
-            session.setAttribute("username", username);
 
-        if(LoginDao.validate(username, password)){
-            RequestDispatcher rd=request.getRequestDispatcher("dashboard.jsp");
+        user= LoginDao.validate(user);
+        if(user!=null){
+            request.setAttribute("user",user);
+            user.setUserName(request.getParameter("username"));
+            session.setAttribute("username",user.getUserName());
+            RequestDispatcher rd=request.getRequestDispatcher("dashboard");
             rd.forward(request,response);
         }
         else{
-           out.print("<p style=\"color:white;background-color:dodgerblue;width:225px;margin-left:580px;height:30px\">Sorry username or password error</p>");
-            RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
+            RequestDispatcher rd=request.getRequestDispatcher("welcome");
             rd.include(request,response);
         }
         out.close();

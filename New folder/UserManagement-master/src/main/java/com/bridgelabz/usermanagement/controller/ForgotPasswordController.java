@@ -48,7 +48,7 @@ public class ForgotPasswordController extends HttpServlet {
             message = "There were an error: " + ex.getMessage();
         } finally {
             out.print("<p style=\"colour:white;background-color:green;margin-left:500px;height:30px\">The password has been sent to your email address.</p");
-            request.getRequestDispatcher("forgotPassword.jsp").forward(request, response);
+            request.getRequestDispatcher("forgotPassword").forward(request, response);
         }
     }
 

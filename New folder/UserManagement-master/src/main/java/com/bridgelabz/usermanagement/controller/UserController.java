@@ -44,8 +44,6 @@ public class UserController extends HttpServlet {
         user.setConformPassword(request.getParameter("conformPassword"));
         user.setRoleId(Integer.parseInt(request.getParameter("userRole")));
         boolean addUser = userDAO.addUser(user);
-        System.out.println(addUser);
-
         out.close();
     }
 
