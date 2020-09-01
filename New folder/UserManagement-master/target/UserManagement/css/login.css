@@ -52,24 +52,21 @@ a {
 .app-name {
     width: 50%;
     background-image: url("images/background.jpeg");
-    opacity: 0.5;
-}
+    color: #FFFFFF;
+    height: 100%;
 
-.image-color{
-    background-color: #6ca0bb;
-    opacity: 0.5;
+}
+.bg-color{
+    background-color: #6CA0BB;
+    opacity: .8;
     display: flex;
     align-items: center;
     height: 100%;
-}
 
-.heading {
-    margin-left: 5%;
-    margin-top: -3%;
-    color: black;
-    font-size: 12px;
-    font-weight: 300;
-    font-family: sans-serif;
+}
+.app-text{
+    padding: 30px;
+    font-size: 20px;
 }
 .switch1 {
     position: relative;
@@ -163,4 +160,15 @@ input:checked + .slider:before {
 }
 button, html input[type=button], input[type=reset], input[type=submit] {
     cursor: pointer;
+}
+
+.error-username{
+    display: flex;
+    justify-content: center;
+    color: tomato;
+}
+.error-password{
+    display: flex;
+    justify-content: center;
+    color: tomato;
 }

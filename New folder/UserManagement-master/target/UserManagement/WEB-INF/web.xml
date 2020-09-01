@@ -30,7 +30,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>newUser</servlet-name>
-        <url-pattern>/servlet/Register</url-pattern>
+        <url-pattern>/register</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -72,6 +72,17 @@
     </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <jsp-file>/logout.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+
+
 
 
     <context-param>
@@ -98,6 +109,7 @@
     <welcome-file-list>
         <welcome-file>login</welcome-file>
     </welcome-file-list>
+
 
 
 </web-app>

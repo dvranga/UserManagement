@@ -72,61 +72,54 @@ break;
 
 
 function isCheck(inputId) {
-
-
     switch(inputId) {
         case "addingCheckBoxes":
-            value=0;
-            for(i = 0; i < addingCheckBoxes.length; i++) {
-                checkBox = addingCheckBoxes[i];
-                if (document.getElementById(checkBox).checked == false) {
-                    value=1;
-                }
-            }
-            if (value == 0) {
-                checkBox = additionalPermissions[0];
-                document.getElementById(checkBox).checked = true;
-            }
+           var checkBoxes=addingCheckBoxes;
+           value=0;
+          find(checkBoxes,value);
             break;
         case "deleteCheckBoxes":
-            value1=0;
-            for(i = 0; i < deleteCheckBoxes.length; i++) {
-                checkBox = deleteCheckBoxes[i];
-                if (document.getElementById(checkBox).checked == false) {
-                    value1=1;
-                }
-            }
-            if (value1 == 0) {
-                checkBox = additionalPermissions[1];
-                document.getElementById(checkBox).checked = true;
-            }
+            var checkBoxes=deleteCheckBoxes;
+            value=1;
+            find(checkBoxes,value);
             break;
         case "modifyCheckBoxes":
-            value2=0;
-            for(i = 0; i < modifyCheckBoxes.length; i++) {
-                checkBox = modifyCheckBoxes[i];
-                if (document.getElementById(checkBox).checked == false) {
-                    value2=1;
-                }
-            }
-            if (value2 == 0) {
-                checkBox = additionalPermissions[2];
-                document.getElementById(checkBox).checked = true;
-            }
+            var checkBoxes=modifyCheckBoxes;
+            value=2;
+            find(checkBoxes,value);
             break;
         case "readCheckBoxes":
-            value3=0;
-            for(i = 0; i < readCheckBoxes.length; i++) {
-                checkBox = readCheckBoxes[i];
-                if (document.getElementById(checkBox).checked == false) {
-                    value3=1;
-                }
-            }
-            if (value3 == 0) {
-                checkBox = additionalPermissions[3];
-                document.getElementById(checkBox).checked = true;
-            }
+            var checkBoxes=readCheckBoxes;
+            value=3;
+            find(checkBoxes,value);
             break;
     }
 
+}
+
+function find(checkBoxes,value) {
+
+
+    for (i = 0; i < checkBoxes.length; i++) {
+        checkBox = checkBoxes[i];
+        if (document.getElementById(checkBox).checked == false) {
+            checkBox = additionalPermissions[value];
+            document.getElementById(checkBox).checked = false;
+        } else {
+            check = 0;
+            for (i = 0; i < checkBoxes.length; i++) {
+                checkBox = checkBoxes[i];
+                if (document.getElementById(checkBox).checked == false) {
+                    checkBox = additionalPermissions[value];
+                    document.getElementById(checkBox).checked = false;
+                    check++;
+                }
+
+            }
+            if (check == 0) {
+                checkBox = additionalPermissions[value];
+                document.getElementById(checkBox).checked = true;
+            }
+        }
+    }
 }

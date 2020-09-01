@@ -32,26 +32,9 @@
 
 </div>
 
+
 <script>
-    function toggleNav(){
-        navSize = document.getElementById("mySidenav").style.width;
-        if (navSize == "16%") {
-            return closeNav();
-        }
-        return openNav();
-    }
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "16%";
-        document.getElementById("main-content").style.marginLeft="16%";
-        document.getElementById("toggleId").className="ti-arrow-circle-left"
-    }
-
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0%";
-        document.getElementById("main-content").style.marginLeft="0%";
-        document.getElementById("toggleId").className="ti-arrow-circle-right"
-    }
-
+    <%@include file="toggleFunction.jsp"%>
 </script>
 
 </body>
