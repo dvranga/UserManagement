@@ -21,6 +21,7 @@ public class LoginDao {
                 user.setFirstName(resultSet.getString("first_name"));
                 user.setMiddleName(resultSet.getString("middle_name"));
                 user.setLastName(resultSet.getString("last_name"));
+                user.setRoleId(resultSet.getInt("role_id"));
             }
         } catch (SQLException | IOException throwables) {
             throwables.printStackTrace();

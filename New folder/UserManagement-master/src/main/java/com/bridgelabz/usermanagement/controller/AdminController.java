@@ -32,6 +32,7 @@ public class AdminController extends HttpServlet {
             request.setAttribute("user",user);
             user.setUserName(request.getParameter("username"));
             session.setAttribute("username",user.getUserName());
+            request.setAttribute("roleId", user.getRoleId());
             RequestDispatcher rd=request.getRequestDispatcher("dashboard");
             rd.forward(request,response);
         }

@@ -1,5 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
 <head>
     <style>
         <%@include file="css/sideNavBar.css"%>
@@ -8,7 +6,7 @@
 </head>
 <body>
 <div id="mySidenav" class="sidenav">
-    <a href="#"><i class="ti-dashboard"> </i>Dashboard</a>
+    <a href="#" id="dashboard"><i class="ti-dashboard" > </i>Dashboard</a>
     <button class="dropdown-user"><i class="ti-files"></i>  WebPages
         <i class="fa fa-caret-left"></i>
     </button>
@@ -18,7 +16,7 @@
         <a href="#">WebPage  3</a>
 
     </div>
-    <button class="dropdown-user"><i class="ti-user"> </i>Users
+    <button class="dropdown-user" id="users"><i class="ti-user" > </i>Users
         <i class="fa fa-caret-left"></i>
     </button>
     <div class="user-container">
@@ -26,7 +24,7 @@
         <a href="#">Users  List</a>
     </div>
     <a href="#"><i class="ti-id-badge"> </i>Profile</a>
-    <button class="dropdown-user"><i class="ti-settings"> </i>Settings
+    <button class="dropdown-user" id="settings"><i class="ti-settings" > </i>Settings
         <i class="fa fa-caret-left"></i>
     </button>
     <div class="user-container">
@@ -40,6 +38,7 @@
            class="ti-arrows-horizontal" onclick="toggleNav()"> </i>
     </div>
 </div>
+
 
 <script>
     var dropdown = document.getElementsByClassName("dropdown-user");
@@ -56,6 +55,14 @@
             }
         });
     }
+
+    var roleId=${roleId}
+   if (roleId === 0) {
+        document.getElementById("dashboard").style.display="none";
+        document.getElementById("users").style.display="none";
+        document.getElementById("settings").style.display="none";
+    }
+   
 </script>
 </body>
 </html>
