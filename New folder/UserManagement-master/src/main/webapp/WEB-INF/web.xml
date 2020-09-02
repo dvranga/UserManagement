@@ -40,6 +40,17 @@
     <servlet-mapping>
         <servlet-name>newuser</servlet-name>
         <url-pattern>/newUser</url-pattern>
+<!--        <a href="newUser">New  User</a>-->
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>userslist</servlet-name>
+        <jsp-file>/UsersList.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>userslist</servlet-name>
+        <url-pattern>/usersList</url-pattern>
+<!--                <a href="usersList">Users  List</a> -->
     </servlet-mapping>
 
 

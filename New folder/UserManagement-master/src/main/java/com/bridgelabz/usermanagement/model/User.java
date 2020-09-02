@@ -1,5 +1,6 @@
 package com.bridgelabz.usermanagement.model;
 
+import javax.servlet.http.Part;
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -19,8 +20,11 @@ public class User {
     private String password;
     private String status;
     private int roleId;
+    private Part image;
 
-    public User(String firstName, String middleName, String lastName, Date dateOfBirth, String gender, String country, Long mobileNumber, Long parentsNumber, String email, String address, int roleId, String userName, String password) {
+
+
+    public User(String firstName, String middleName, String lastName, Date dateOfBirth, String gender, String country, Long mobileNumber, Long parentsNumber, String email, String address, int roleId, String userName, String password,Part image) {
         this.firstName=firstName;
         this.middleName=middleName;
         this.lastName=lastName;
@@ -34,6 +38,7 @@ public class User {
         this.roleId=roleId;
         this.userName=userName;
         this.password=password;
+        this.image=image;
     }
 
     public User() {
@@ -123,4 +128,10 @@ public class User {
     public void setRoleId(int roleId) {
         this.roleId = roleId;
     }
+
+    public Part getImage() {
+        return image;
+    }
+
+
 }

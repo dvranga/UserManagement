@@ -1,0 +1,157 @@
+.body-panel{
+    height: 91%;
+    width: 100%;
+    display: flex;
+    background-color: #F5F6F9;
+}
+.sidenav-pannel{
+    overflow: hidden;
+}
+.main-content{
+    width: 100%;
+    overflow: auto;
+    background-color: #F5F6F9;
+}
+
+.title {
+    height:12%;
+    background-color: #FFFFFF;
+    border: 1px solid #d1d6e6;
+    display: flex;
+}
+.title-name {
+    color: #5e6773;
+    font-weight: normal;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 3%;
+    margin-top: 2%;
+    font-weight: normal;
+    box-sizing: border-box;
+}
+.title-link{
+    margin-left: 55%;
+    width: 35%;
+    padding: 2% 0%;
+    text-align: right;
+    float: left;
+}
+.home-icon{
+    color: #00AAFF;
+    cursor: pointer;
+    text-decoration: none;
+}
+.userList-panel{
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    background-color: #FFFFFF;
+    border: 1px solid #d1d6e6;
+    display: block;
+    box-sizing: border-box;
+    font-family: "Roboto",Sans-Serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    background-color: #FFFFFF;
+    margin: 3%;
+    width: 96%;
+}
+.userList-heading{
+    border-bottom: 1px solid #eaeff2;
+    background-color: #f8f9fa;
+    text-align: right;
+}
+.newUser-button{
+    color: white;
+    background-color: deepskyblue;
+    text-align: right;
+    border: none;
+    height: 4%;
+    padding: 4px 10px;
+    font-size: 11px;
+}
+.row{
+    display: flex;
+    height: 5%;
+    margin-top: 2%;
+}
+.form-control{
+    width: 13%;
+    border-radius: 2px;
+    background-color: #fcfcfc;
+    color: #5e6773;
+    border-color: #e1e3ea;
+    padding-left: 1%;
+    padding-top: 0.2%;
+}
+.search-box{
+    position: relative;
+    margin-left: 71%;
+    width: 16%;
+    border-radius: 2px;
+    color: #5e6773;
+    padding-left: 1%;
+    padding-top: 0.2%;
+
+}
+.userList-table{
+    width: 100%;
+}
+.table {
+    font-family: arial, sans-serif;
+    width: 100%;
+
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+.slno{
+width: 5%;
+}
+.name{
+width: 30%;
+}
+.email{
+    width: 10%;
+}
+.Dob{
+
+}
+.status{
+
+}
+.role{
+
+}
+.account{
+
+}
+.action{
+
+}
+#users{
+    border-collapse: collapse;
+}
+.users-table{
+
+}
+.lock-icon{
+    padding-left: 45%;
+    color: #41B314;
+}
+
+   /*;*/
+
+.trash-icon{
+    color: #F9354C;
+}
+.sidenav{
+    height: 695px;
+}
+.main-content{
+    height: 695px;
+}

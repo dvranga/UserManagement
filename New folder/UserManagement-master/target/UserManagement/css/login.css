@@ -172,3 +172,23 @@ button, html input[type=button], input[type=reset], input[type=submit] {
     justify-content: center;
     color: tomato;
 }
+#username-empty, #password-empty {
+    color: red;
+}
+
+.username:hover, .username, .password:hover, .password {
+    border: 1px solid #E1E3EA;
+    outline: none;
+    border-radius: 5px;
+}
+
+.username-null, .password-null {
+    border: 1px solid #F92F47;
+    outline: none;
+    border-radius: 5px;
+    height: 34px;
+}
+
+.username-not-null, .password-not-null {
+    border: 1px solid #41B314;
+}

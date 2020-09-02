@@ -22,12 +22,14 @@ public class AdminController extends HttpServlet {
         PrintWriter out = response.getWriter();
         User user =new User();
 
-        user.setUserName(request.getParameter("username"));
-        user.setPassword(request.getParameter("password"));
+        String username = request.getParameter("username");
+        user.setUserName(username);
+        String password = request.getParameter("password");
+        user.setPassword(password);
 
         HttpSession session = request.getSession(true);
 
-        user= LoginDao.validate(user);
+        user= LoginDao.validate(username,password);
         if(user!=null){
             request.setAttribute("user",user);
             user.setUserName(request.getParameter("username"));
@@ -37,7 +39,9 @@ public class AdminController extends HttpServlet {
             rd.forward(request,response);
         }
         else{
-            RequestDispatcher rd=request.getRequestDispatcher("welcome");
+           out.println("<p document.getElementById('username').className = 'username-null'></p>");
+            RequestDispatcher rd=request.getRequestDispatcher("login");
+
             rd.include(request,response);
         }
         out.close();

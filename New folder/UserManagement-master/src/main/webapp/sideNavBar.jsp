@@ -21,7 +21,7 @@
     </button>
     <div class="user-container">
         <a href="newUser">New  User</a>
-        <a href="#">Users  List</a>
+        <a href="usersList">Users  List</a>
     </div>
     <a href="#"><i class="ti-id-badge"> </i>Profile</a>
     <button class="dropdown-user" id="settings"><i class="ti-settings" > </i>Settings
@@ -56,13 +56,21 @@
         });
     }
 
-    var roleId=${roleId}
-   if (roleId === 0) {
-        document.getElementById("dashboard").style.display="none";
-        document.getElementById("users").style.display="none";
-        document.getElementById("settings").style.display="none";
-    }
-   
+    <%--var roleId=${roleId}--%>
+    <%--if (roleId === 1) {--%>
+    <%--    document.getElementById("dashboard").style.display="block";--%>
+    <%--    document.getElementById("users").style.display="block";--%>
+    <%--    document.getElementById("settings").style.display="block";--%>
+    <%--} else if (roleId === 0) {--%>
+    <%--    document.getElementById("dashboard").style.display="none";--%>
+    <%--    document.getElementById("users").style.display="none";--%>
+    <%--    document.getElementById("settings").style.display="none";--%>
+    <%--}else {--%>
+    <%--    document.getElementById("dashboard").style.display="block";--%>
+    <%--    document.getElementById("users").style.display="block";--%>
+    <%--    document.getElementById("settings").style.display="block";--%>
+    <%--}--%>
+
 </script>
 </body>
 </html>

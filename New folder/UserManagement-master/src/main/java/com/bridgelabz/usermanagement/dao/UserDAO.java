@@ -1,11 +1,11 @@
 package com.bridgelabz.usermanagement.dao;
 
 import com.bridgelabz.usermanagement.configurations.DataBaseConfiguration;
-import com.bridgelabz.usermanagement.model.Permissions;
 import com.bridgelabz.usermanagement.model.User;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,6 +13,43 @@ import java.sql.SQLException;
 public class UserDAO {
 
     DataBaseConfiguration connection=new DataBaseConfiguration();
+
+
+
+    public boolean addUser(User user) throws SQLException, IOException {
+
+        Part filePart = user.getImage();
+        InputStream inputStream = null;
+        if (filePart != null) {
+             inputStream = filePart.getInputStream();
+        }
+        try {
+            PreparedStatement preparedStatement = connection.getConnection().prepareStatement("" +
+                    "INSERT INTO `user_management`.`user_details` (`first_name`, `middle_name`, `last_name`, `date_of_birth`, `gender`, `country`, `phone`, `phone_ext`, `email`, `address`, `user_name`, `password`, `role_id`,`image`) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+            preparedStatement.setString(1, user.getFirstName());
+            preparedStatement.setString(2, user.getMiddleName());
+            preparedStatement.setString(3,user.getLastName());
+            preparedStatement.setDate(4,user.getDateOfBirth());
+            preparedStatement.setString(5,user.getGender());
+            preparedStatement.setString(6,user.getCountry());
+            preparedStatement.setLong(7,user.getMobileNumber());
+            preparedStatement.setLong(8,user.getParentNumber());
+            preparedStatement.setString(9,user.getEmail());
+            preparedStatement.setString(10,user.getAddress());
+            preparedStatement.setString(11,user.getUserName());
+            preparedStatement.setString(12,user.getPassword());
+            preparedStatement.setInt(13,user.getRoleId());
+            if (inputStream != null) {
+                preparedStatement.setBlob(14,inputStream);
+            }
+            int result = preparedStatement.executeUpdate();
+            return (result!=0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
 
     public boolean addPermissions(int userId, int web_page_id,boolean add,boolean delete,boolean modify, boolean read) throws SQLException {
@@ -34,31 +71,7 @@ public class UserDAO {
         return false;
     }
 
-    public boolean addUser(User user) throws SQLException {
 
-        try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement("" +
-                    "INSERT INTO `user_management`.`user_details` (`first_name`, `middle_name`, `last_name`, `date_of_birth`, `gender`, `country`, `phone`, `phone_ext`, `email`, `address`, `user_name`, `password`, `role_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
-            preparedStatement.setString(1, user.getFirstName());
-            preparedStatement.setString(2, user.getMiddleName());
-            preparedStatement.setString(3,user.getLastName());
-            preparedStatement.setDate(4,user.getDateOfBirth());
-            preparedStatement.setString(5,user.getGender());
-            preparedStatement.setString(6,user.getCountry());
-            preparedStatement.setLong(7,user.getMobileNumber());
-            preparedStatement.setLong(8,user.getParentNumber());
-            preparedStatement.setString(9,user.getEmail());
-            preparedStatement.setString(10,user.getAddress());
-            preparedStatement.setString(11,user.getUserName());
-            preparedStatement.setString(12,user.getPassword());
-            preparedStatement.setInt(13,user.getRoleId());
-            int result = preparedStatement.executeUpdate();
-            return (result!=0);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
     public int getUserId(String userName) {
         try {
             PreparedStatement preparedStatement = connection.getConnection().prepareStatement("" +
@@ -136,5 +149,24 @@ public class UserDAO {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public ResultSet updateUserList() {
+
+        try {
+            PreparedStatement preparedStatement = connection.getConnection().prepareStatement("" +
+                    "select * from user_details;");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet != null) {
+                return resultSet;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }

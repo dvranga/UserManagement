@@ -6,13 +6,19 @@ import com.bridgelabz.usermanagement.model.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@MultipartConfig(fileSizeThreshold=1024*1024*10, 	// 10 MB
+        maxFileSize=1024*1024*50,      	// 50 MB
+        maxRequestSize=1024*1024*100)
 public class UserController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,7 +26,6 @@ public class UserController extends HttpServlet {
         response.setContentType("text/html");
 
         String add=request.getParameter("add");
-        System.out.println(add);
         String firstName=request.getParameter("firstName");
         String middleName=request.getParameter("middleName");
         String lastName=request.getParameter("lastName");
@@ -36,8 +41,10 @@ public class UserController extends HttpServlet {
         int roleId=(role == "Admin")?1:0;
         String userName=request.getParameter("userName");
         String password=request.getParameter("password");
+        Part image = request.getPart("image");
+        System.out.println(image+" *******************************");
         User user=new User(firstName, middleName, lastName, dateOfBirth, gender, country, mobileNumber, parentsNumber,
-                email, address, roleId, userName, password);
+                email, address, roleId, userName, password,image);
 
         boolean dashboardAdd= Boolean.parseBoolean(request.getParameter("dashboard_add"));
         boolean dashboardDelete= Boolean.parseBoolean((request.getParameter("dashboard_delete")));
@@ -84,10 +91,9 @@ public class UserController extends HttpServlet {
         try {
             addUser = userDAO.addUser(user);
         } catch (SQLException e) {
-            e.printStackTrace();
-            if(checkEmail<1&&checkMobileNumber<0&&checkUserName<0) {
                 request.setAttribute("helperText", "Registration Failed");
-            }
+            e.printStackTrace();
+
         }
 
         int userId = 0;
@@ -109,8 +115,25 @@ public class UserController extends HttpServlet {
         }
 
 
+
         if (addUser&&addPermissions==true) {
             request.setAttribute("helperText", "User successfully registered.");
+//            ResultSet resultSet = userDAO.updateUserList();
+//                try {
+//                    while (resultSet.next()) {
+//                        request.setAttribute("listUsers",resultSet);
+//                        request.setAttribute("username",user.getUserName());
+//                        request.setAttribute("email",user.getEmail());
+//                        request.setAttribute("dob",user.getDateOfBirth());
+//                    }
+//                } catch (SQLException e) {
+//                    e.printStackTrace();
+//                }
+
+            }
+
+        else{
+            request.setAttribute("helperText", "Registration Failed");
         }
         RequestDispatcher rd=request.getRequestDispatcher("newUser");
         rd.include(request,response);

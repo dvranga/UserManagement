@@ -8,14 +8,15 @@ import java.sql.*;
 
 public class LoginDao {
 
-    public static User validate(User user) {
+    public static User validate(String username,String password) {
 
+        User user=new User();
         DataBaseConfiguration connection=new DataBaseConfiguration();
 
         try {
             PreparedStatement preparedStatement = connection.getConnection().prepareStatement("select * from user_details where user_name=? and password=?");
-            preparedStatement.setString(1, user.getUserName());
-            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
             ResultSet resultSet= preparedStatement.executeQuery();
             if(resultSet.next()){
                 user.setFirstName(resultSet.getString("first_name"));

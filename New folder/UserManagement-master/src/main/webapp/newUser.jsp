@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <form action="register" method="post">
+        <form action="register" method="post" enctype="multipart/form-data">
         <div class="middle-container">
             <div class="new-user">
                 <div class="new-user-box">
@@ -228,6 +228,7 @@
                     </label>
                 </div>
             </div>
+
 
         </div>
         <div class="permissions">
