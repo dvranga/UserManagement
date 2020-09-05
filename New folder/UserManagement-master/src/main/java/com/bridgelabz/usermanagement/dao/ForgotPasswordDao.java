@@ -9,13 +9,13 @@ import java.sql.SQLException;
 
 public class ForgotPasswordDAO {
 
-    public static String getPassword(String yourEmail) throws IOException {
+    public static String getPassword(String email) throws IOException {
 
         DataBaseConfiguration connection=new DataBaseConfiguration();
         String  password=null;
         try {
             PreparedStatement preparedStatement = connection.getConnection().prepareStatement("select password from user_details where  email=?");
-            preparedStatement.setString(1, yourEmail);
+            preparedStatement.setString(1, email);
             ResultSet resultSet= preparedStatement.executeQuery();
             while (resultSet.next()){
                 password=resultSet.getString(1);
@@ -24,6 +24,7 @@ public class ForgotPasswordDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return password;
     }
 }

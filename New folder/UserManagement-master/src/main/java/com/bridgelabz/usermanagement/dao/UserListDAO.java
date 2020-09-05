@@ -3,7 +3,6 @@ package com.bridgelabz.usermanagement.dao;
 import com.bridgelabz.usermanagement.configurations.DataBaseConfiguration;
 import com.bridgelabz.usermanagement.model.User;
 
-import javax.servlet.http.Part;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,20 +39,19 @@ public class UserListDAO {
                 user.setPassword(resultSet.getString("password"));
                 user.setRoleId(resultSet.getInt("role_id"));
                 Blob image = resultSet.getBlob("image");
-                InputStream binaryStream = image.getBinaryStream();
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                byte[] bytes = new byte[4096];
+                InputStream inputStream=image.getBinaryStream();
+                ByteArrayOutputStream outputStream=new ByteArrayOutputStream();
+                byte[] buffer=new byte[4096];
                 int bytesRead=-1;
-                while ((bytesRead = binaryStream.read(bytes)) != -1) {
-                    stream.write(bytes,0,bytesRead);
+                while ((bytesRead=inputStream.read(buffer))!=-1){
+                    outputStream.write(buffer,0,bytesRead);
                 }
-                byte[] toByteArray = stream.toByteArray();
-                user.setImage(Base64.getEncoder().encodeToString(toByteArray));
-                binaryStream.close();
-                stream.close();
+                byte[] imagebytes=outputStream.toByteArray();
+                user.setImage(Base64.getEncoder().encodeToString(imagebytes));
+                inputStream.close();
+                outputStream.close();
                 userList.add(user);
             }
-
             return userList;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -63,31 +61,4 @@ public class UserListDAO {
 
         return userList;
     }
-
-    public  static ArrayList<User> deleteUserList(int user_id){
-        ArrayList<User> userList=new ArrayList<>();
-        DataBaseConfiguration connection=new DataBaseConfiguration();
-        try {
-            PreparedStatement preparedStatement=connection.getConnection().prepareStatement("" +
-                    "delete  from user_permissions where `user_id`=?");
-            preparedStatement.setInt(1, user_id);
-            preparedStatement.executeQuery();
-            PreparedStatement preparedStatement1=connection.getConnection().prepareStatement("" +
-                    "delete  from user_details where `user_id`=?");
-            preparedStatement.setInt(1, user_id);
-            ResultSet resultSet1 = preparedStatement1.executeQuery();
-
-            return (ArrayList<User>) resultSet1;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return userList;
-    }
-
-
-
-
 }

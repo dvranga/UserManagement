@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <style>
         <%@include file="css/sideNavBar.css"%>
@@ -7,25 +8,25 @@
 </head>
 <body>
 <div id="mySidenav" class="sidenav">
-    <a href="#" id="dashboard"><i class="ti-dashboard" > </i>Dashboard</a>
+    <a href="dashboard" id="dashboard-id"><i class="ti-dashboard"> </i>Dashboard</a>
     <button class="dropdown-user"><i class="ti-files"></i>  WebPages
         <i class="fa fa-caret-left"></i>
     </button>
     <div class="user-container">
-        <a href="dummy2">WebPage  1</a>
-        <a href="dummy">WebPage  2</a>
-        <a href="#">WebPage  3</a>
+        <a href="webpage1">WebPage  1</a>
+        <a href="webpage2">WebPage  2</a>
+        <a href="webpage3">WebPage  3</a>
 
     </div>
-    <button class="dropdown-user" id="users"><i class="ti-user" > </i>Users
+    <button class="dropdown-user" id="user-id"><i class="ti-user"> </i>Users
         <i class="fa fa-caret-left"></i>
     </button>
     <div class="user-container">
         <a href="newUser">New  User</a>
-        <a href="usersList">Users  List</a>
+        <a href="userListController?action=userList">Users  List</a>
     </div>
-    <a href="#"><i class="ti-id-badge"> </i>Profile</a>
-    <button class="dropdown-user" id="settings"><i class="ti-settings" > </i>Settings
+    <a href="profile"><i class="ti-id-badge"> </i>Profile</a>
+    <button class="dropdown-user" id="settings-id"><i class="ti-settings"> </i>Settings
         <i class="fa fa-caret-left"></i>
     </button>
     <div class="user-container">
@@ -33,15 +34,15 @@
         <a href="#">Email SMTP</a>
         <a href="#">Database Connection</a>
     </div>
-    <a href="logout.jsp"><i class="ti-power-off"> </i> Logout</a>
+    <a href="logout"><i class="ti-power-off"> </i> Logout</a>
     <div class="tab-close-button">
         <i style="color:white; margin-left: 50px; cursor: pointer"
            class="ti-arrows-horizontal" onclick="toggleNav()"> </i>
     </div>
 </div>
 
-
 <script>
+
     var dropdown = document.getElementsByClassName("dropdown-user");
     var i;
 
@@ -57,21 +58,26 @@
         });
     }
 
-    <%--var roleId=${roleId}--%>
-    <%--if (roleId === 1) {--%>
-    <%--    document.getElementById("dashboard").style.display="block";--%>
-    <%--    document.getElementById("users").style.display="block";--%>
-    <%--    document.getElementById("settings").style.display="block";--%>
-    <%--} else if (roleId === 0) {--%>
-    <%--    document.getElementById("dashboard").style.display="none";--%>
-    <%--    document.getElementById("users").style.display="none";--%>
-    <%--    document.getElementById("settings").style.display="none";--%>
-    <%--}else {--%>
-    <%--    document.getElementById("dashboard").style.display="block";--%>
-    <%--    document.getElementById("users").style.display="block";--%>
-    <%--    document.getElementById("settings").style.display="block";--%>
-    <%--}--%>
+    var userRole=${userRole}
+        console.log(userRole, "userRole")
+    if(userRole==="Admin"){
+        document.getElementById("dashboard-id").style.display="block"
+        document.getElementById("user-id").style.display="block"
+        document.getElementById("settings-id").style.display="block"
 
+    }
+    else if (userRole==="User"){
+        document.getElementById("dashboard-id").style.display="none"
+        document.getElementById("user-id").style.display="none"
+        document.getElementById("settings-id").style.display="none"
+
+    }
+    else {
+        document.getElementById("dashboard-id").style.display="block"
+        document.getElementById("user-id").style.display="block"
+        document.getElementById("settings-id").style.display="block"
+
+    }
 </script>
 </body>
 </html>

@@ -1,9 +1,7 @@
 package com.bridgelabz.usermanagement.model;
 
-import javax.servlet.http.Part;
-import java.sql.Blob;
+
 import java.sql.Date;
-import java.time.LocalDate;
 
 public class User {
     private int user_id;
@@ -21,19 +19,29 @@ public class User {
     private String password;
     private String status;
     private int roleId;
-
     private String image;
 
-    public String getImage() {
-        return image;
+    public String getStatus() {
+        return status;
     }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
 
-    public int getUser_id() {
-        return user_id;
+    public User(String firstName, String middleName, String lastName, Date dateOfBirth, String gender, String country, Long mobileNumber, Long parentsNumber, String email, String address, int roleId, String userName,
+                String password, String image) {
+        this.firstName=firstName;
+        this.middleName=middleName;
+        this.lastName=lastName;
+        this.dateOfBirth=dateOfBirth;
+        this.gender=gender;
+        this.country=country;
+        this.mobileNumber=mobileNumber;
+        this.parentNumber=parentsNumber;
+        this.email=email;
+        this.address=address;
+        this.roleId = roleId;
+        this.userName=userName;
+        this.password=password;
+        this.image=image;
     }
 
     public void setDateOfBirth(Date dateOfBirth) {
@@ -60,36 +68,20 @@ public class User {
         this.address = address;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
     public void setStatus(String status) {
         this.status = status;
     }
 
-
-    public User(String firstName, String middleName, String lastName, Date dateOfBirth, String gender,
-                String country, Long mobileNumber, Long parentsNumber, String email, String address,
-                int roleId, String userName, String password, String image) {
-        this.firstName=firstName;
-        this.middleName=middleName;
-        this.lastName=lastName;
-        this.dateOfBirth=dateOfBirth;
-        this.gender=gender;
-        this.country=country;
-        this.mobileNumber=mobileNumber;
-        this.parentNumber=parentsNumber;
-        this.email=email;
-        this.address=address;
-        this.roleId=roleId;
-        this.userName=userName;
-        this.password=password;
-        this.image=image;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public User() {
 
+    }
+
+    public String getImage() {
+        return image;
     }
 
     public String getUserName() {
@@ -176,31 +168,7 @@ public class User {
         this.roleId = roleId;
     }
 
-
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "user_id=" + user_id +
-                ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", gender='" + gender + '\'' +
-                ", country='" + country + '\'' +
-                ", mobileNumber=" + mobileNumber +
-                ", parentNumber=" + parentNumber +
-                ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", status='" + status + '\'' +
-                ", roleId=" + roleId +
-                ", image=" + image +
-                '}';
-    }
-
-    public void setImage(Blob image) {
-
+    public int getUser_id() {
+        return user_id;
     }
 }

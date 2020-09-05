@@ -12,28 +12,26 @@ var userModifyCheckBoxes = ["user_info_modify","w1_modify","w2_modify","w3_modif
 var userReadCheckBoxes = ["w1_read","w2_read","w3_read"];
 var userPermissions = userAddingCheckBoxes.concat(userModifyCheckBoxes,userReadCheckBoxes);
 
-
 function userRolePermissions(event) {
-var role = event.value;
+    var role = event.value;
+    console.log(role, "role")
+    if(role==1){
+        for(i = 0; i < adminPermissions.length; i++) {
+            checkBox = adminPermissions[i];
+            document.getElementById(checkBox).checked = true;
+        }
+    }
+    else if (role==0){
+        for(i = 0; i < adminPermissions.length; i++) {
+            checkBox = adminPermissions[i];
+            document.getElementById(checkBox).checked = false;
+        }
+        for(i = 0; i < userPermissions.length; i++) {
+            checkBox = userPermissions[i];
+            document.getElementById(checkBox).checked = true;
+        }
+    }
 
-switch(role) {
-case "Admin":
-    for(i = 0; i < adminPermissions.length; i++) {
-        checkBox = adminPermissions[i];
-        document.getElementById(checkBox).checked = true;
-    }
-break;
-case "User":
-    for(i = 0; i < adminPermissions.length; i++) {
-        checkBox = adminPermissions[i];
-        document.getElementById(checkBox).checked = false;
-    }
-    for(i = 0; i < userPermissions.length; i++) {
-        checkBox = userPermissions[i];
-        document.getElementById(checkBox).checked = true;
-    }
-break;
-}
 }
 
         function onCheck(inputId) {

@@ -1,41 +1,39 @@
-<html>
 <%@ page import="com.bridgelabz.usermanagement.model.User" %>
-<%
-    User user = (User)request.getAttribute("user");
-    String fullName = user.getFirstName();
-    if(user.getLastName()!=null){
-        fullName+=" "+user.getLastName();
-    }
-%>
+<html>
 
 <head>
     <title>User Dashboard</title>
-    <%@include file="toolBar.jsp"%>
-    <%@include file="sideNavBar.jsp"%>
-    <style><%@include file="css/dashboard.css"%></style>
+    <style><%@include file="/css/dashboard.css"%></style>
 </head>
 <body style="background-color: aliceblue;margin: 0">
+<%User user=(User)session.getAttribute("user");
+    String fullName=user.getFirstName();
+    if(user.getMiddleName()!=null){
+        fullName+=" "+user.getMiddleName();
+    }
+    fullName+=" "+user.getLastName();
+%>
 
-<div class="main" id="main-content">
-
-    <div class="content-heading ">
-        <div class="contain">
-        <div class="left-heading">
-            <div style="height: 50%;">
-                <p class="username">Welcome
-                    <%=fullName%>
-                </p>
+<div class="header-panel">
+    <%@include file="toolBar.jsp" %>
+</div>
+<div class="body-panel">
+    <div class="sidenav-pannel">
+        <%@include file="sideNavBar.jsp"%>
+    </div>
+    <div class="main-content">
+        <div class="title">
+            <div class="title-name"> Welcome&nbsp;<%=fullName%>
+                <p class="tagline">You last logged in on: </p>
+            </div>
+            <div class="title-link">
+                <i style="margin-left: 50%" class="fa fa-home"></i>
+                <a class="home-icon" href="dashboard">Home</a>
+                <a> / Dashboard</a>
             </div>
         </div>
-        </div>
+
     </div>
-
 </div>
-
-
-<script>
-    <%@include file="toggleFunction.jsp"%>
-</script>
-
 </body>
 </html>

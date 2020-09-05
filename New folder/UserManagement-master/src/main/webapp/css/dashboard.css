@@ -1,43 +1,51 @@
-.main{
-    margin-left: 16%;
-}xx
- .content-heading {
-     background-color: #FFFFFF;
-     padding: 15px 10px;
-     height: 7%;
-     display: flex;
 
- }
-.left-heading{
-    display: block;
-    width: 40%;
-}
-
-.contain{
-
-}
-
-.right-heading{
+.body-panel{
+    height: 91%;
+    width: 100%;
     display: flex;
-    margin-left: 45%;
-    margin-top: 2%;
-    font-size: 16px;
-    font-family: Roboto ;
-    color: black;
-    font-weight: 500;
 }
-.home{
-    color: dodgerblue;
-    text-decoration: none;
+.sidenav-pannel{
+    overflow: hidden;
 }
-.username{
+.main-content{
+    width: 100%;
+    overflow: auto;
+}
+
+.title {
+    height:12%;
+    background-color: #FFFFFF;
+    border: 1px solid #d1d6e6;
+    display: flex;
+}
+.title-name {
+    color: #5e6773;
     font-weight: normal;
     font-size: 18px;
-    position: absolute;
-    width: 30%;
+    font-family: sans-serif;
+    margin-left: 3%;
+    margin-top: 1.5%;
+    font-weight: normal;
+    box-sizing: border-box;
+    width: 65%;
 }
-.page-subtitle {
-    font-size: 14px;
+.title-link{
+    margin-left: -5%;
+    width: 35%;
+    padding: 2% 0%;
+    text-align: right;
+    float: left;
+}
+.tagline{
+    color:#a0aeba;
+    font-size: 15px;
     font-weight: 300;
-    color: #a0aeba;
+    margin-top: 0%;
+    padding-top: 0.5%;
 }
+.home-icon{
+    color: #00AAFF;
+    cursor: pointer;
+    text-decoration: none;
+}
+

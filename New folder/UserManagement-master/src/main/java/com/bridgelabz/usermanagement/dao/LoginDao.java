@@ -13,7 +13,7 @@ public class LoginDao {
         DataBaseConfiguration connection= new DataBaseConfiguration();
         ArrayList permissionList=new ArrayList(4);
         try {
-            PreparedStatement preparedStatement=connection.getConnection().prepareStatement("select  * from user_permissions where user_id=? and menu_id=?");
+            PreparedStatement preparedStatement=connection.getConnection().prepareStatement("select  * from user_permissions where user_id=? and web_page_id=?");
             preparedStatement.setInt(1, userId);
             preparedStatement.setInt(2,menuId);
             ResultSet resultSet = preparedStatement.executeQuery();

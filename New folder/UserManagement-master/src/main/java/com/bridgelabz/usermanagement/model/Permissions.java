@@ -16,51 +16,16 @@ public class Permissions {
     private boolean UserInformationRead;
     private boolean webPage1Add;
     private boolean webPage1Delete;
-    private boolean webPage1Modify;
+    private boolean wenPage1Modify;
     private boolean webPage1Read;
     private boolean webPage2Add;
     private boolean webPage2Delete;
-    private boolean webPage2Modify;
+    private boolean wenPage2Modify;
     private boolean webPage2Read;
     private boolean webPage3Add;
     private boolean webPage3Delete;
-    private boolean webPage3Modify;
+    private boolean wenPage3Modify;
     private boolean webPage3Read;
-
-    public Permissions() {
-    }
-
-    public Permissions(boolean dashboardAdd, boolean dashboardDelete, boolean dashboardModify, boolean dashboardRead,
-                       boolean settingsAdd, boolean settingsDelete, boolean settingsModify, boolean settingsRead,
-                       boolean userInformationAdd, boolean userInformationDelete, boolean userInformationModify, boolean userInformationRead,
-                       boolean webPage1Add, boolean webPage1Delete, boolean webPage1Modify, boolean webPage1Read,
-                       boolean webPage2Add, boolean webPage2Delete, boolean webPage2Modify, boolean webPage2Read,
-                       boolean webPage3Add, boolean webPage3Delete, boolean webPage3Modify, boolean webPage3Read) {
-        this.dashboardAdd = dashboardAdd;
-        this.dashboardDelete = dashboardDelete;
-        this.dashboardModify = dashboardModify;
-        this.dashboardRead = dashboardRead;
-        SettingsAdd = settingsAdd;
-        SettingsDelete = settingsDelete;
-        SettingsModify = settingsModify;
-        SettingsRead = settingsRead;
-        UserInformationAdd = userInformationAdd;
-        UserInformationDelete = userInformationDelete;
-        UserInformationModify = userInformationModify;
-        UserInformationRead = userInformationRead;
-        this.webPage1Add = webPage1Add;
-        this.webPage1Delete = webPage1Delete;
-        this.webPage1Modify = webPage1Modify;
-        this.webPage1Read = webPage1Read;
-        this.webPage2Add = webPage2Add;
-        this.webPage2Delete = webPage2Delete;
-        this.webPage2Modify = webPage2Modify;
-        this.webPage2Read = webPage2Read;
-        this.webPage3Add = webPage3Add;
-        this.webPage3Delete = webPage3Delete;
-        this.webPage3Modify = webPage3Modify;
-        this.webPage3Read = webPage3Read;
-    }
 
     public boolean isDashboardAdd() {
         return dashboardAdd;
@@ -118,8 +83,8 @@ public class Permissions {
         return webPage1Delete;
     }
 
-    public boolean isWebPage1Modify() {
-        return webPage1Modify;
+    public boolean isWenPage1Modify() {
+        return wenPage1Modify;
     }
 
     public boolean isWebPage1Read() {
@@ -134,8 +99,8 @@ public class Permissions {
         return webPage2Delete;
     }
 
-    public boolean isWebPage2Modify() {
-        return webPage2Modify;
+    public boolean isWenPage2Modify() {
+        return wenPage2Modify;
     }
 
     public boolean isWebPage2Read() {
@@ -150,11 +115,40 @@ public class Permissions {
         return webPage3Delete;
     }
 
-    public boolean isWebPage3Modify() {
-        return webPage3Modify;
+    public boolean isWenPage3Modify() {
+        return wenPage3Modify;
     }
 
     public boolean isWebPage3Read() {
         return webPage3Read;
     }
+
+    public Permissions(boolean dashboardAdd, boolean dashboardDelete, boolean dashboardModify, boolean dashboardRead, boolean settingsAdd, boolean settingsDelete, boolean settingsModify, boolean settingsRead, boolean userInformationAdd, boolean userInformationDelete, boolean userInformationModify, boolean userInformationRead, boolean webPage1Add, boolean webPage1Delete, boolean wenPage1Modify, boolean webPage1Read, boolean webPage2Add, boolean webPage2Delete, boolean wenPage2Modify, boolean webPage2Read, boolean webPage3Add, boolean webPage3Delete, boolean wenPage3Modify, boolean webPage3Read) {
+        this.dashboardAdd = dashboardAdd;
+        this.dashboardDelete = dashboardDelete;
+        this.dashboardModify = dashboardModify;
+        this.dashboardRead = dashboardRead;
+        SettingsAdd = settingsAdd;
+        SettingsDelete = settingsDelete;
+        SettingsModify = settingsModify;
+        SettingsRead = settingsRead;
+        UserInformationAdd = userInformationAdd;
+        UserInformationDelete = userInformationDelete;
+        UserInformationModify = userInformationModify;
+        UserInformationRead = userInformationRead;
+        this.webPage1Add = webPage1Add;
+        this.webPage1Delete = webPage1Delete;
+        this.wenPage1Modify = wenPage1Modify;
+        this.webPage1Read = webPage1Read;
+        this.webPage2Add = webPage2Add;
+        this.webPage2Delete = webPage2Delete;
+        this.wenPage2Modify = wenPage2Modify;
+        this.webPage2Read = webPage2Read;
+        this.webPage3Add = webPage3Add;
+        this.webPage3Delete = webPage3Delete;
+        this.wenPage3Modify = wenPage3Modify;
+        this.webPage3Read = webPage3Read;
+    }
+
+
 }
