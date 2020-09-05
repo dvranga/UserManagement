@@ -741,3 +741,15 @@ input[type="file"] {
     display: flex;
     justify-content: center;
 }
+
+.password-null {
+    border: 1px solid #F92F47;
+    outline: none;
+    border-radius: 5px;
+    height: 34px;
+}
+.right_password .wrong_password{
+    display: flex;
+    justify-content: center;
+    color: tomato;
+}

@@ -1,6 +1,6 @@
 package com.bridgelabz.usermanagement.controller;
 
-import com.bridgelabz.usermanagement.dao.ForgotPasswordDao;
+import com.bridgelabz.usermanagement.dao.ForgotPasswordDAO;
 import com.bridgelabz.usermanagement.utility.EmailUtility;
 
 import javax.servlet.ServletContext;
@@ -36,7 +36,7 @@ public class ForgotPasswordController extends HttpServlet {
         PrintWriter out=response.getWriter();
         String userMail=request.getParameter("email");
         String subject = "Your Password has been sent";
-        String password= ForgotPasswordDao.getPassword(userMail);
+        String password= ForgotPasswordDAO.getPassword(userMail);
         String content = " this is your  password: " + password;
         content += "\nNote: for security reason, "+ "you must change your password after logging in.";
         String message = "";

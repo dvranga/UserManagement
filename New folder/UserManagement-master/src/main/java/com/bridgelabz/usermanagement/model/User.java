@@ -1,6 +1,7 @@
 package com.bridgelabz.usermanagement.model;
 
 import javax.servlet.http.Part;
+import java.sql.Blob;
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -20,11 +21,57 @@ public class User {
     private String password;
     private String status;
     private int roleId;
-    private Part image;
+
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setMobileNumber(long mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public void setParentNumber(long parentNumber) {
+        this.parentNumber = parentNumber;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
 
-
-    public User(String firstName, String middleName, String lastName, Date dateOfBirth, String gender, String country, Long mobileNumber, Long parentsNumber, String email, String address, int roleId, String userName, String password,Part image) {
+    public User(String firstName, String middleName, String lastName, Date dateOfBirth, String gender,
+                String country, Long mobileNumber, Long parentsNumber, String email, String address,
+                int roleId, String userName, String password, String image) {
         this.firstName=firstName;
         this.middleName=middleName;
         this.lastName=lastName;
@@ -129,9 +176,31 @@ public class User {
         this.roleId = roleId;
     }
 
-    public Part getImage() {
-        return image;
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "user_id=" + user_id +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", gender='" + gender + '\'' +
+                ", country='" + country + '\'' +
+                ", mobileNumber=" + mobileNumber +
+                ", parentNumber=" + parentNumber +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", status='" + status + '\'' +
+                ", roleId=" + roleId +
+                ", image=" + image +
+                '}';
     }
 
+    public void setImage(Blob image) {
 
+    }
 }

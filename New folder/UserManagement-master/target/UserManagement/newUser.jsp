@@ -1,9 +1,27 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>New User</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <style><%@include file="css/newUser.css"%>
     </style>
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var conformPassword = document.getElementById("conform_password").value;
+            var returnValue = true;
+            if ( password === conformPassword) {
+                document.getElementById('right_password').innerHTML="password is conformed";
+                returnValue = true;
+            }
+            if ( password !== conformPassword) {
+                document.getElementById('wrong_password').innerHTML="password is not conformed";
+                document.getElementById('wrong_password').className = 'username-null';
+                returnValue = false;
+            }
+            return returnValue;
+        }
+    </script>
 </head>
 <body style="margin:0;display: block">
 <div class="header-panel">
@@ -177,16 +195,19 @@
                                 </td>
                                 <td class="column-2-2">
                                     <div class="passwordcolumn22">
-                                        <input type="password" name="password" class="passwordcolumn22input" required="required">
+                                        <input type="password" name="password" id="password" class="passwordcolumn22input" required="required">
                                     </div>
                                 </td>
+                                <span class="right_password" id="right_password"></span>
+
                                 <td class="column-2-3">
                                     <div class="conformpasswordcolumn23">
-                                        <input type="text" name="conformPassword" class="conformpasswordinput" required="required">
+                                        <input type="text" name="conformPassword" id="conform_password" class="conformpasswordinput" required="required">
                                     </div>
                                 </td>
-                            </tr>
+                                <span class="wrong_password" id="wrong_password" style="color: tomato"></span>
 
+                            </tr>
 
                             <tr class="row1">
                                 <td class="column-date-of-birth">
@@ -353,7 +374,7 @@
             </div>
         </div>
         <div class="bottom-container">
-            <input class="submit-button" type="submit" >
+            <input class="submit-button" type="submit" onclick="return validateForm()">
             <input class="reset-button" type="submit" value="Reset">
         </div>
 

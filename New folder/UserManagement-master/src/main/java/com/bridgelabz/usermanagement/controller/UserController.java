@@ -1,6 +1,7 @@
 package com.bridgelabz.usermanagement.controller;
 
 import com.bridgelabz.usermanagement.dao.UserDAO;
+import com.bridgelabz.usermanagement.dao.UserListDAO;
 import com.bridgelabz.usermanagement.model.Permissions;
 import com.bridgelabz.usermanagement.model.User;
 
@@ -11,26 +12,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@MultipartConfig(fileSizeThreshold=1024*1024*10, 	// 10 MB
-        maxFileSize=1024*1024*50,      	// 50 MB
-        maxRequestSize=1024*1024*100)
+
 public class UserController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html");
 
-        String add=request.getParameter("add");
         String firstName=request.getParameter("firstName");
+        System.out.println(firstName+" firstname");
         String middleName=request.getParameter("middleName");
         String lastName=request.getParameter("lastName");
-        String date=request.getParameter("dateOfBirth");
+        String date= String.valueOf(request.getDateHeader("dateOfBirth"));
+        System.out.println(" date "+date);
         Date dateOfBirth=Date.valueOf(date);
+        System.out.println(dateOfBirth+" dateofbirth");
         String gender=request.getParameter("gender");
         String country=request.getParameter("country");
         Long mobileNumber=Long.parseLong(request.getParameter("phone"));
@@ -42,9 +46,17 @@ public class UserController extends HttpServlet {
         String userName=request.getParameter("userName");
         String password=request.getParameter("password");
         Part image = request.getPart("image");
-        System.out.println(image+" *******************************");
+        InputStream inputStream=null;
+        String image1=null;
+        if (image.getSize() == 0) {
+            inputStream=new FileInputStream("C:\\Users\\Heros\\Desktop\\usermanagement\\New folder\\UserManagement-master\\src\\main\\webapp\\images\\profile_image.jpeg");
+        }
+        else{
+            inputStream=image.getInputStream();
+        }
         User user=new User(firstName, middleName, lastName, dateOfBirth, gender, country, mobileNumber, parentsNumber,
-                email, address, roleId, userName, password,image);
+                email, address, roleId, userName, password,image1);
+
 
         boolean dashboardAdd= Boolean.parseBoolean(request.getParameter("dashboard_add"));
         boolean dashboardDelete= Boolean.parseBoolean((request.getParameter("dashboard_delete")));
@@ -89,7 +101,7 @@ public class UserController extends HttpServlet {
         }
         boolean  addUser = false;
         try {
-            addUser = userDAO.addUser(user);
+            addUser = userDAO.addUser(user,inputStream);
         } catch (SQLException e) {
                 request.setAttribute("helperText", "Registration Failed");
             e.printStackTrace();
@@ -115,20 +127,9 @@ public class UserController extends HttpServlet {
         }
 
 
-
+        UserListDAO userListDAO=new UserListDAO();
         if (addUser&&addPermissions==true) {
             request.setAttribute("helperText", "User successfully registered.");
-//            ResultSet resultSet = userDAO.updateUserList();
-//                try {
-//                    while (resultSet.next()) {
-//                        request.setAttribute("listUsers",resultSet);
-//                        request.setAttribute("username",user.getUserName());
-//                        request.setAttribute("email",user.getEmail());
-//                        request.setAttribute("dob",user.getDateOfBirth());
-//                    }
-//                } catch (SQLException e) {
-//                    e.printStackTrace();
-//                }
 
             }
 

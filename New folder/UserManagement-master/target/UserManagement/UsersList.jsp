@@ -1,27 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>User List</title>
     <style>
         <%@include file="css/usersList.css"%>
     </style>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
 </head>
 <body>
-<sql:setDataSource
-        var="myDS"
-        driver="com.mysql.jdbc.Driver"
-        url="jdbc:mysql://localhost:3306/user_management"
-        user="root" password="root"
-/>
-<sql:query var="listUsers"   dataSource="${myDS}">
-    SELECT * FROM user_details;
-</sql:query>
 <div class="header-panel">
     <%@include file="toolBar.jsp" %>
 </div>
@@ -35,24 +20,23 @@
             <div class="title-name">Users</div>
             <div class="title-link">
                 <i style="margin-left: 50%" class="fa fa-home"></i>
-                <a class="home-icon" href="dashboard.jsp">Home</a>
+                <a class="home-icon" href="webPages/dashboard.jsp">Home</a>
                 <a> / Users</a>
             </div>
         </div>
         <div class="userList-panel">
-            
             <div class="userList-heading">
-                <button class="newUser-button">
+                <a href="addUser" class="newUser-button">
                     <i class="ti-user"> </i> New User
-                </button>
+                </a>
             </div>
             <div class="row">
                 <select class="form-control"><option>10</option><option>20</option><option>50</option><option>100</option>
                 </select>
-                <input placeholder="Search..." type="text" class="search-box">
+                <input placeholder="Search..." id="text" onkeypress="myFunction()" type="text" class="search-box" title="Type in a name">
             </div>
             <br/>
-            <div class="userList-table" >
+            <div class="userList-table">
                 <table id="users" class="users-table">
                     <tr>
                         <th class="slno"></th>
@@ -64,18 +48,30 @@
                         <th class="account">Account</th>
                         <th class="action">Action</th>
                     </tr>
-                    <c:forEach var="user" items="${listUsers.rows}">
+                    <%ArrayList<User> listOfUsers=(ArrayList<User>)session.getAttribute("listOfUsers"); %>
+                    <% for (User usersList: listOfUsers) { %>
                     <tr>
-                        <td>Profile</td>
-                        <td><c:out value="${user.user_name}" /></td>
-                        <td><c:out value="${user.email}" /></td>
-                        <td><c:out value="${user.date_of_birth}" /></td>
-                        <td>Active</td>
-                        <td>Admin</td>
+                        <td> <img src="data:image/jpg;base64,<%=usersList.getImage()%>" width="40" height="30" /></td>
+                        <% String fullName=usersList.getFirstName();
+                            if(usersList.getMiddleName()!=null){
+                                fullName+=" "+usersList.getMiddleName();
+                            }
+                            fullName+=" "+usersList.getLastName();
+                        %>
+
+                        <td><%=fullName%></td>
+                        <td><%=usersList.getEmail()%></td>
+                        <td><%=usersList.getDateOfBirth()%></td>
+                        <td><%=usersList.getStatus()%></td>
+                        <% int roleId = usersList.getRoleId();
+                            String role=(roleId==1)?"Admin":"User";
+                        %>
+                        <td><%=role%></td>
                         <td ><a class="lock-icon"> <i class="ti-unlock" /></a></td>
-                        <td > &nbsp;&nbsp;<i style="color: #00aaff" class="ti-pencil-alt"/>&nbsp;&nbsp;<a class="trash-icon"><i class="ti-trash"/></a></td>
+                        <td >   <i style="color: #00aaff" class="ti-pencil-alt"/>  <a  href="userListController?userId=<%=usersList.getUser_id()%>" class="trash-icon"><i class="ti-trash"/></a></td>
+
                     </tr>
-                    </c:forEach>
+                    <%}%>
                 </table>
             </div>
 
@@ -87,6 +83,33 @@
 </div>
 
 </div>
+<script>
+    <%@page import="java.util.ArrayList" %><%@ page import="com.bridgelabz.usermanagement.model.User"%>
+    <%@ page import="java.util.*" %>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("text");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("users");
+        tr = table.getElementsByTagName("tr");
+        console.log(tr," tr");
+        for (i = 0; i < tr.length; i++) {
+            sample=tr[i].getElementsByTagName("td")[0];
+            console.log(sample," sample");
+            td = tr[i].getElementsByTagName("td")[1];
+            console.log(td,"  td");
+            if (td) {
+                txtValue = td.textContent || td.innerText || td.innerHTML;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+</script>
 
 </body>
 </html>

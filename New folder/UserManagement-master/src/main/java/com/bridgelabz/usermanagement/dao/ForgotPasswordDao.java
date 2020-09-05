@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ForgotPasswordDao {
+public class ForgotPasswordDAO {
 
     public static String getPassword(String yourEmail) throws IOException {
 

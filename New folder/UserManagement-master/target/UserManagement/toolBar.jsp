@@ -1,5 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-
 <head>
     <title>User DashBoard</title>
     <style><%@include file="css/toolBar.css"%></style>

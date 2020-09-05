@@ -16,17 +16,13 @@ public class UserDAO {
 
 
 
-    public boolean addUser(User user) throws SQLException, IOException {
+    public boolean addUser(User user, InputStream inputStream) throws SQLException, IOException {
 
-        Part filePart = user.getImage();
-        InputStream inputStream = null;
-        if (filePart != null) {
-             inputStream = filePart.getInputStream();
-        }
+
         try {
             PreparedStatement preparedStatement = connection.getConnection().prepareStatement("" +
-                    "INSERT INTO `user_management`.`user_details` (`first_name`, `middle_name`, `last_name`, `date_of_birth`, `gender`, `country`, `phone`, `phone_ext`, `email`, `address`, `user_name`, `password`, `role_id`,`image`) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+                    "INSERT INTO `user_management`.`user_details` (`first_name`, `middle_name`, `last_name`, `date_of_birth`, `gender`, `country`, `phone`, `phone_ext`, `email`, `address`, `user_name`, `password`,`conform_password`, `role_id`,`image`) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
             preparedStatement.setString(1, user.getFirstName());
             preparedStatement.setString(2, user.getMiddleName());
             preparedStatement.setString(3,user.getLastName());
@@ -39,9 +35,10 @@ public class UserDAO {
             preparedStatement.setString(10,user.getAddress());
             preparedStatement.setString(11,user.getUserName());
             preparedStatement.setString(12,user.getPassword());
-            preparedStatement.setInt(13,user.getRoleId());
+            preparedStatement.setBoolean(13,true);
+            preparedStatement.setInt(14,user.getRoleId());
             if (inputStream != null) {
-                preparedStatement.setBlob(14,inputStream);
+                preparedStatement.setBlob(15,inputStream);
             }
             int result = preparedStatement.executeUpdate();
             return (result!=0);
@@ -151,22 +148,4 @@ public class UserDAO {
         return 0;
     }
 
-    public ResultSet updateUserList() {
-
-        try {
-            PreparedStatement preparedStatement = connection.getConnection().prepareStatement("" +
-                    "select * from user_details;");
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet != null) {
-                return resultSet;
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
 }
