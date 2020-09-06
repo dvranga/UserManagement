@@ -31,7 +31,7 @@
                 </a>
             </div>
             <div class="row">
-                <select class="form-control"><option></option><option>20</option><option>50</option><option>100</option>
+                <select class="form-control"><option>10</option><option>20</option><option>50</option><option>100</option>
                 </select>
                 <input placeholder="Search..." id="myInput" onkeyup="myFunction()" type="text" class="search-box" title="Type in a name">
             </div>
@@ -54,16 +54,13 @@
                     <tr>
                         <td> <img src="data:image/jpg;base64,<%=user.getImage()%>" width="40" height="30" /></td>
                         <% String fullName= user.getFirstName();
-//                            if(usersList.getMiddleName()!=null){
-//                                fullName+=" "+usersList.getMiddleName();
-//                            }
                             fullName+=" "+user.getLastName();
                         %>
 
                         <td><%=fullName%></td>
                         <td><%=user.getEmail()%></td>
                         <td><%=user.getDateOfBirth()%></td>
-                        <td><%=user.getStatus()%></td>
+                        <td>Active</td>
                         <% int roleId = user.getRoleId();
                             String role=(roleId==1)?"Admin":"User";
                         %>
@@ -75,6 +72,17 @@
                     </tr>
                     <%}%>
                 </table>
+                <br/>
+                <br/>
+                <div style="display: flex">
+                    <% for (int i=0;i<=listOfUsers.size()/10+1;i++) { %>
+                    <table>
+                        <td class="pagination" >
+                            <a href="userListController?action=pagination&pageId=<%=-10+(i*10)%>"><%=i+1%></a>
+                        </td>
+                    </table>
+                    <% }%>
+                </div>
             </div>
 
         </div>

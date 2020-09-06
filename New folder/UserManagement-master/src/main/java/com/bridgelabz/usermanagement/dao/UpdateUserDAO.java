@@ -12,10 +12,6 @@ import java.sql.SQLException;
 public class UpdateUserDAO {
 
     DataBaseConfiguration connection=new DataBaseConfiguration();
-//    UPDATE `user_management`.`user_permissions` SET `add` = '1', `delete` = '1', `modify` = '1', `read` = '1' WHERE (`id` = '173');
-//    "INSERT INTO `user_management`.`user_permissions` (`user_id`, `web_page_id`, `add`, `delete`, `modify`, `read`) VALUES (?, ?, ?, ?, ?, ?)");
-
-
 
     public boolean updatePermissions(int userId, int menuId, boolean add, boolean delete, boolean modify, boolean read){
 
@@ -31,7 +27,6 @@ public class UpdateUserDAO {
             preparedStatement.setInt(5, userId);
             preparedStatement.setInt(6, menuId);
             int result = preparedStatement.executeUpdate();
-            System.out.println(result+" permissions 123123");
             return (result!=0);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -63,7 +58,6 @@ public class UpdateUserDAO {
             preparedStatement.setInt(15,user_id);
 
             int result = preparedStatement.executeUpdate();
-            System.out.println(result+" general 123123");
             return (result!=0);
         } catch (SQLException e) {
             e.printStackTrace();

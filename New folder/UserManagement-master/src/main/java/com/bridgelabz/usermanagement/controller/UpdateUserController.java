@@ -82,7 +82,6 @@ public class UpdateUserController extends HttpServlet {
         int userId = addUserDao.getUserId(userName);
         if (userId > 0) {
             boolean updateUser = updateUserDAO.updateUser(user, imageStream, userId);
-            System.out.println(updateUser+" updateUser");
         }
 
 

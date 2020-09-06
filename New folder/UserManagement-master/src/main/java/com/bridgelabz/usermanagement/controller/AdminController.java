@@ -14,16 +14,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdminController extends HttpServlet {
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ArrayList<User> listOfUsers = UserListDAO.getUserList();
-        System.out.println("no of records "+listOfUsers.size());
-        request.setAttribute("listOfUsers", listOfUsers);
-        RequestDispatcher requestDispatcher=request.getRequestDispatcher("userlist");
-        requestDispatcher.forward(request, response);
-    }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -46,10 +39,6 @@ public class AdminController extends HttpServlet {
         ArrayList webpage3 =LoginDao.getPermissions(user.getUser_id(), 6);
         System.out.println(webpage3+" webpage3");
 
-        ArrayList<User> listOfUsers = UserListDAO.getUserList();
-
-
-        session.setAttribute("listOfUsers", listOfUsers);
         session.setAttribute("user",user);
         request.setAttribute("userRole", user.getRoleId());
         session.setAttribute("username",user.getUserName());

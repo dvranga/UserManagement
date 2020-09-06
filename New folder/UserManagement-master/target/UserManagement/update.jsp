@@ -93,8 +93,9 @@
                                     </td>
                                     <td class="column-middle-name-input">
                                         <div class="middle-name-input-column22">
-                                            <select value="<%=editUser.getGender()%>" id="gender" class="middle-name-input" name="gender">
-                                                <option >Select</option>
+                                            <%String k= editUser.getGender();%>
+                                            <select value=<%=k%> id="gender" class="middle-name-input" name="gender">
+                                                <option value="<%=k%>">select</option>
                                                 <option value="F">Female</option>
                                                 <option value="M">Male</option>
                                             </select>
@@ -103,7 +104,6 @@
                                     <td class="column-last-name-input">
                                         <div class="last-name-input-column23">
                                             <select id="country" class="last-name-input" name="country" value="<%=editUser.getCountry()%>">
-                                                <option value="Select">Select</option>
                                                 <option value="India">India</option>
                                                 <option value="Pakistan">Russia</option>
                                                 <option value="America">America</option>
@@ -150,6 +150,7 @@
                                     </td>
                                     <td class="column-2-2">
                                         <div class="address-column22">
+
                         <textarea rows = "5" cols = "50"  class="address-input" name = "address" value="<%=editUser.getAddress()%>">
                             </textarea>
                                         </div>
@@ -201,7 +202,7 @@
                                     <td class="column-date-of-birth-input">
                                         <div class="userrolecolumn21">
                                             <select  class="userrolecolumn21input" name="userRole"  onchange="userRolePermissions(this)" value="<%=editUser.getRoleId()%>">
-                                                <option value="">Select</option>
+                                                <option value="<%=editUser.getRoleId()%>">Select</option>
                                                 <option value=1>Admin</option>
                                                 <option value=0>User</option>
                                             </select>

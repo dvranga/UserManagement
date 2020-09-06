@@ -138,3 +138,8 @@ td, th {
 .trash-icon{
     color: #F9354C;
 }
+.pagination {
+    widows: 10;
+    border: 1px solid #cccccc;
+    color: #00a0f0;
+}
