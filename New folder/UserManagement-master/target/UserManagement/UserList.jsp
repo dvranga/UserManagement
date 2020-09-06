@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ARUN
-  Date: 31-08-2020
-  Time: 09:42 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -38,7 +31,7 @@
                 </a>
             </div>
             <div class="row">
-                <select class="form-control"><option>10</option><option>20</option><option>50</option><option>100</option>
+                <select class="form-control"><option></option><option>20</option><option>50</option><option>100</option>
                 </select>
                 <input placeholder="Search..." id="myInput" onkeyup="myFunction()" type="text" class="search-box" title="Type in a name">
             </div>
@@ -55,27 +48,29 @@
                         <th class="account">Account</th>
                         <th class="action">Action</th>
                     </tr>
-                    <%ArrayList<User> listOfUsers=(ArrayList<User>)session.getAttribute("listOfUsers"); %>
-                    <% for (User usersList: listOfUsers) { %>
+                    <%List<User> listOfUsers= (List<User>) session.getAttribute("listOfUsers"); %>
+                    <%
+                        for (User user:listOfUsers) { %>
                     <tr>
-                        <td> <img src="data:image/jpg;base64,<%=usersList.getImage()%>" width="40" height="30" /></td>
-                        <% String fullName=usersList.getFirstName();
-                            if(usersList.getMiddleName()!=null){
-                                fullName+=" "+usersList.getMiddleName();
-                            }
-                            fullName+=" "+usersList.getLastName();
+                        <td> <img src="data:image/jpg;base64,<%=user.getImage()%>" width="40" height="30" /></td>
+                        <% String fullName= user.getFirstName();
+//                            if(usersList.getMiddleName()!=null){
+//                                fullName+=" "+usersList.getMiddleName();
+//                            }
+                            fullName+=" "+user.getLastName();
                         %>
 
                         <td><%=fullName%></td>
-                        <td><%=usersList.getEmail()%></td>
-                        <td><%=usersList.getDateOfBirth()%></td>
-                        <td><%=usersList.getStatus()%></td>
-                        <% int roleId = usersList.getRoleId();
+                        <td><%=user.getEmail()%></td>
+                        <td><%=user.getDateOfBirth()%></td>
+                        <td><%=user.getStatus()%></td>
+                        <% int roleId = user.getRoleId();
                             String role=(roleId==1)?"Admin":"User";
                         %>
                         <td><%=role%></td>
                         <td ><a class="lock-icon"> <i class="ti-unlock" /></a></td>
-                        <td > &nbsp;&nbsp;<i style="color: #00aaff" class="ti-pencil-alt"/>&nbsp;&nbsp;<a  href="userListController?action=delete&userId=<%=usersList.getUser_id()%>" class="trash-icon"><i class="ti-trash"/></a></td>
+                        <td > &nbsp;&nbsp;<a href="userListController?action=edit&userId=<%=user.getUser_id()%>"><i style="color: #00aaff" class="ti-pencil-alt"></i></a>&nbsp;&nbsp;
+                            <a  href="userListController?action=delete&userId=<%=user.getUser_id()%>" class="trash-icon"><i class="ti-trash"/></a></td>
 
                     </tr>
                     <%}%>

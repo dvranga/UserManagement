@@ -33,6 +33,16 @@
         <url-pattern>/addUserController</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>updateUser</servlet-name>
+        <servlet-class>com.bridgelabz.usermanagement.controller.UpdateUserController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateUser</servlet-name>
+        <url-pattern>/updateUserController</url-pattern>
+    </servlet-mapping>
+
+
 
     <servlet-mapping>
         <servlet-name>userListController</servlet-name>
@@ -53,6 +63,15 @@
         <servlet-name>newuser</servlet-name>
         <url-pattern>/newUser</url-pattern>
 <!--        <a href="newUser">New  User</a>-->
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>update</servlet-name>
+        <jsp-file>/update.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>update</servlet-name>
+        <url-pattern>/updateUser</url-pattern>
     </servlet-mapping>
 
 

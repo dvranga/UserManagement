@@ -40,7 +40,15 @@ public class UserListController extends HttpServlet {
             request.setAttribute("userRole", user.getRoleId());
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("/userlist");
             requestDispatcher.forward(request, response);
+        } else if (action.equals("edit")) {
+            int userId = Integer.parseInt(request.getParameter("userId"));
+            User userDetailsByUserId = LoginDao.getUserDetailsByUserId(userId);
+            session.setAttribute("editUser",userDetailsByUserId);
+            RequestDispatcher update = request.getRequestDispatcher("/updateUser");
+            update.forward(request,response);
+
         }
+
 
     }
 }

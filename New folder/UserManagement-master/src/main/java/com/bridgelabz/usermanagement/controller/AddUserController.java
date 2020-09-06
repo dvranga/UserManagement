@@ -1,6 +1,7 @@
 package com.bridgelabz.usermanagement.controller;
 
 import com.bridgelabz.usermanagement.dao.AddUserDAO;
+import com.bridgelabz.usermanagement.dao.UpdateUserDAO;
 import com.bridgelabz.usermanagement.model.Permissions;
 import com.bridgelabz.usermanagement.model.User;
 

@@ -57,16 +57,17 @@ public class AdminController extends HttpServlet {
         session.setAttribute("webpage2", webpage2);
         session.setAttribute("webpage3", webpage3);
 
+        System.out.println(user.getRoleId()+" roleId");
         if(user.getRoleId()==1){
             RequestDispatcher rd=request.getRequestDispatcher("dashboard");
             rd.forward(request,response);
         }
-        else if (user.getRoleId()==2){
-            RequestDispatcher rd=request.getRequestDispatcher("profile");
+        else if (user.getRoleId()==0){
+            RequestDispatcher rd=request.getRequestDispatcher("dashboard");
             rd.forward(request,response);
         }
         else{
-            RequestDispatcher rd=request.getRequestDispatcher("welcome");
+            RequestDispatcher rd=request.getRequestDispatcher("login");
             rd.include(request,response);
         }
         out.close();
