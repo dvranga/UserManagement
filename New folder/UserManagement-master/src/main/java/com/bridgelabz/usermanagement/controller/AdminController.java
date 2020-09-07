@@ -31,6 +31,12 @@ public class AdminController extends HttpServlet {
         HttpSession session = request.getSession(true);
 
         user= LoginDao.validate(user);
+        ArrayList dashboardpermission = LoginDao.getPermissions(user.getUser_id(), 1);
+        System.out.println(dashboardpermission+" dshboard permission");
+        ArrayList settingpermission = LoginDao.getPermissions(user.getUser_id(), 2);
+        System.out.println(settingpermission+" settingpermission");
+        ArrayList userpermission = LoginDao.getPermissions(user.getUser_id(), 3);
+        System.out.println(userpermission+" userpermission");
         ArrayList webpage1 =LoginDao.getPermissions(user.getUser_id(), 4);
         System.out.println(webpage1+" webpage1");
         ArrayList webpage2 =LoginDao.getPermissions(user.getUser_id(), 5);

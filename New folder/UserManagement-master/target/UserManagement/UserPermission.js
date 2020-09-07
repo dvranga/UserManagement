@@ -11,6 +11,12 @@ var userAddingCheckBoxes = ["w1_add","w2_add","w3_add"];
 var userModifyCheckBoxes = ["user_info_modify","w1_modify","w2_modify","w3_modify"];
 var userReadCheckBoxes = ["w1_read","w2_read","w3_read"];
 var userPermissions = userAddingCheckBoxes.concat(userModifyCheckBoxes,userReadCheckBoxes);
+var userDashboardPermission=["dashboard_add","dashboard_delete","dashboard_modify","dashboard_read"]
+var userInformationPermission=["user_info_add","user_info_delete", "user_info_modify","user_info_read"]
+var userSettingPermission=["settings_add","settings_delete","settings_modify","settings_read"]
+var userW1Permission=["w1_add","w1_delete","w1_modify","w1_read"]
+var userW2Permission=["w2_add","w2_delete","w2_modify","w2_read"]
+var userW3Permission=["w3_add","w3_delete","w3_modify","w3_read"]
 
 function userRolePermissions(event) {
     var role = event.value;

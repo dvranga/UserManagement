@@ -73,8 +73,7 @@
                     <%}%>
                 </table>
                 <br/>
-                <br/>
-                <div style="display: flex">
+                    <span style="display: flex">
                     <% for (int i=0;i<=listOfUsers.size()/10+1;i++) { %>
                     <table>
                         <td class="pagination" >
@@ -82,7 +81,7 @@
                         </td>
                     </table>
                     <% }%>
-                </div>
+                </span>
             </div>
 
         </div>

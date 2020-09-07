@@ -126,7 +126,32 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>webpage1</servlet-name>
+        <jsp-file>/webpage1.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>webpage1</servlet-name>
+        <url-pattern>/webpage1</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+        <servlet-name>webpage2</servlet-name>
+        <jsp-file>/webpage2.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>webpage2</servlet-name>
+        <url-pattern>/webpage2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>webpage3</servlet-name>
+        <jsp-file>/webpage3.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>webpage3</servlet-name>
+        <url-pattern>/webpage3</url-pattern>
+    </servlet-mapping>
 
 
 

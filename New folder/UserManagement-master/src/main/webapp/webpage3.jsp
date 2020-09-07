@@ -1,91 +1,127 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Web Page3</title>
-    <jsp:include page="sideNavBar.jsp"></jsp:include>
-    <jsp:include page="toolBar.jsp"></jsp:include>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
+    <title>WebPage</title>
     <style>
         <%@include file="css/webapps.css"%>
     </style>
 </head>
-<body class="body">
-<div class="main" id="main-content">
-<div class="title">
-    <div class="title-name">Webpages3</div>
-    <div class="sub-title">Permissions granted for webpages 3</div>
+<body>
+<div class="header-panel">
+    <%@include file="toolBar.jsp" %>
 </div>
-<div class="home">
-    <div class="home-icon">
-        <a><i class="fa fa-home"></i><span class="color">Home</span>&nbsp;/&nbsp;Webpage 3</a>
+<div class="body-panel">
+    <div class="sidenav-pannel">
+        <%@include file="sideNavBar.jsp"%>
+    </div>
+    <div class="main-content">
+
+
+        <div class="title">
+            <div class="title-name">WebPage 3
+                <p class="tagline">Permissions granted for webpage 3</p>
+            </div>
+            <div class="title-link">
+                <i style="margin-left: 50%" class="fa fa-home"></i>
+                <a class="home-icon" href="dashboard">Home</a>
+                <a> / webpage 3</a>
+            </div>
+        </div>
+
+
+        <div class="permissions">
+            <div class="permission-box">
+                <div class="web-page-header">Webpage Permissions</div>
+                <table class="table-no-border">
+                    <tbody>
+                    <tr>
+                        <td style="width: 60%">
+                            <span class="inputLabel">Add Permission</span>
+                        </td>
+                        <td>
+                            <div class="reminder">
+                                <label class="switch1">
+                                    <input style="height: 15px" class="check-box" id="add-web3" type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td style="width: 60%">
+                            <span class="inputLabel">Delete Permission</span>
+                        </td>
+                        <td>
+                            <div class="reminder">
+                                <label class="switch1">
+                                    <input style="height: 15px" class="check-box" id="delete-web3" type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr></tr>
+
+                    <tr>
+                        <td style="width: 60%">
+                            <span class="inputLabel">Modify Permission</span>
+                        </td>
+                        <td>
+                            <div class="reminder">
+                                <label class="switch1">
+                                    <input style="height: 15px" class="check-box" id="modify-web3" type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr></tr>
+
+                    <tr>
+                        <td style="width: 60%">
+                            <span class="inputLabel">Read Permission</span>
+                        </td>
+                        <td>
+                            <div class="reminder">
+                                <label class="switch1">
+                                    <input style="height: 15px" class="check-box" id="read-web3" type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
-<div class="permissions">
-<div class="permission-box">
-<div class="web-page-header">Webpage Permissions</div>
-    <table class="table-no-border">
-        <tbody>
-        <tr>
-            <td style="width: 60%">
-                <span class="inputLabel">Add Permission</span>
-            </td>
-            <td>
-                <div class="reminder">
-                    <label class="switch1">
-                        <input style="height: 15px" class="check-box" type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-            </td>
-        </tr>
-        <tr></tr>
-        <tr>
-            <td style="width: 60%">
-                <span class="inputLabel">Delete Permission</span>
-            </td>
-            <td>
-                <div class="reminder">
-                    <label class="switch1">
-                        <input style="height: 15px" class="check-box" type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-            </td>
-        </tr>
-        <tr></tr>
+</body>
+</html>
+</div>
+</div>
+<script>
+    var webPage3Permissions=<%=session.getAttribute("webpage3")%>;
 
-        <tr>
-            <td style="width: 60%">
-                <span class="inputLabel">Modify Permission</span>
-            </td>
-            <td>
-                <div class="reminder">
-                    <label class="switch1">
-                        <input style="height: 15px" class="check-box" type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-            </td>
-        </tr>
-        <tr></tr>
+    (webPage3Permissions[0])?
+        document.getElementById("add-web3").checked=true :
+        document.getElementById("add-web3").checked=false;
 
-        <tr>
-            <td style="width: 60%">
-                <span class="inputLabel">Read Permission</span>
-            </td>
-            <td>
-                <div class="reminder">
-                    <label class="switch1">
-                        <input style="height: 15px" class="check-box" type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-</div>
-</div>
+    (webPage3Permissions[1])?
+        document.getElementById("delete-web3").checked=true :
+        document.getElementById("delete-web3").checked=false;
+
+
+    (webPage3Permissions[2])?
+        document.getElementById("modify-web3").checked=true:
+        document.getElementById("modify-web3").checked=false;
+
+    (webPage3Permissions[3])?
+        document.getElementById("read-web3").checked=true:
+        document.getElementById("read-web3").checked=false;
+
+
+</script>
+
 </body>
 </html>

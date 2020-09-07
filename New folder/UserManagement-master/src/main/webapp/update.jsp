@@ -318,6 +318,46 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
     <script type="text/javascript">
         <%@include file ="UserPermission.js" %>
+    </script>
+    <script>
+
+
+        var dashboardpermission=<%=session.getAttribute("dashboardpermission")%>;
+        for (var i = 0; i < userDashboardPermission.length; i++) {
+            var checkbox = userDashboardPermission[i];
+            document.getElementById(checkbox).checked=dashboardpermission[i];
+        }
+
+        var settingpermission=<%=session.getAttribute("settingpermission")%>;
+        for (var i = 0; i < userSettingPermission.length; i++) {
+            var checkbox = userSettingPermission[i];
+            document.getElementById(checkbox).checked=settingpermission[i];
+        }
+
+
+        var userpermission=<%=session.getAttribute("userpermission")%>;
+        for (var i = 0; i < userInformationPermission.length; i++) {
+            var checkbox = userInformationPermission[i];
+            document.getElementById(checkbox).checked=userpermission[i];
+        }
+
+        var webPage1Permissions=<%=session.getAttribute("webpage1")%>;
+        for (var i = 0; i < userW1Permission.length; i++) {
+            var checkbox = userW1Permission[i];
+            document.getElementById(checkbox).checked=webPage1Permissions[i];
+        }
+
+        var webPage2Permissions=<%=session.getAttribute("webpage2")%>;
+        for (var i = 0; i < userW2Permission.length; i++) {
+            var checkbox = userW2Permission[i];
+            document.getElementById(checkbox).checked=webPage2Permissions[i];
+        }
+
+        var webPage3Permissions=<%=session.getAttribute("webpage3")%>;
+        for (var i = 0; i < userW3Permission.length; i++) {
+            var checkbox = userW3Permission[i];
+            document.getElementById(checkbox).checked=webPage3Permissions[i];
+        }
 
     </script>
 </form>
