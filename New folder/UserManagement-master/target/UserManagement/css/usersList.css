@@ -59,9 +59,10 @@
 }
 .userList-heading{
     border-bottom: 1px solid #eaeff2;
-    background-color: #f8f9fa;
+    /*background-color: #f8f9fa;*/
     text-align: right;
     height: 4%;
+    margin-top: 1%;
 }
 .newUser-button{
     color: white;
@@ -133,8 +134,6 @@ td, th {
     color: #41B314;
 }
 
-
-
 .trash-icon{
     color: #F9354C;
 }
@@ -142,4 +141,13 @@ td, th {
     widows: 10;
     border: 1px solid #cccccc;
     color: #00a0f0;
+}
+
+.user-container {
+    margin-left: 20px;
+    font-size: 10px;
+    font-weight: lighter;
+    display: none;
+    padding: 5px 2px;
+
 }

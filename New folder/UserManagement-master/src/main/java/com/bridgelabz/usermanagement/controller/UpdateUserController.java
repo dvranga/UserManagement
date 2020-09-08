@@ -1,17 +1,16 @@
 package com.bridgelabz.usermanagement.controller;
 
 import com.bridgelabz.usermanagement.dao.AddUserDAO;
+import com.bridgelabz.usermanagement.dao.LoginDao;
 import com.bridgelabz.usermanagement.dao.UpdateUserDAO;
 import com.bridgelabz.usermanagement.model.Permissions;
 import com.bridgelabz.usermanagement.model.User;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+import javax.servlet.http.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -91,6 +90,7 @@ public class UpdateUserController extends HttpServlet {
         updateUserDAO.updatePermissions(userId, 4, permissions.isWebPage1Add(), permissions.isWebPage1Delete(), permissions.isWenPage1Modify(), permissions.isWebPage1Read());
         updateUserDAO.updatePermissions(userId, 5, permissions.isWebPage2Add(), permissions.isWebPage2Delete(), permissions.isWenPage2Modify(), permissions.isWebPage2Read());
         updateUserDAO.updatePermissions(userId, 6, permissions.isWebPage3Add(), permissions.isWebPage3Delete(), permissions.isWenPage3Modify(), permissions.isWebPage3Read());
+
         RequestDispatcher rd=request.getRequestDispatcher("newUser");
         rd.include(request,response);
     }

@@ -94,8 +94,8 @@
                                     <td class="column-middle-name-input">
                                         <div class="middle-name-input-column22">
                                             <%String k= editUser.getGender();%>
-                                            <select value=<%=k%> id="gender" class="middle-name-input" name="gender">
-                                                <option value="<%=k%>">select</option>
+                                            <select value=<%=k%> id="gender" class="middle-name-input" onchange="this.value.selected" name="gender">
+                                                <option >select</option>
                                                 <option value="F">Female</option>
                                                 <option value="M">Male</option>
                                             </select>
@@ -103,8 +103,8 @@
                                     </td>
                                     <td class="column-last-name-input">
                                         <div class="last-name-input-column23">
-                                            <select id="country" class="last-name-input" name="country" value="<%=editUser.getCountry()%>">
-                                                <option value="India">India</option>
+                                            <select id="country" class="last-name-input" name="country" onselect="<%=editUser.getCountry()%>">
+                                                <option value="India" selected="selected">India</option>
                                                 <option value="Pakistan">Russia</option>
                                                 <option value="America">America</option>
                                                 <option value="England">England</option>
@@ -201,7 +201,7 @@
                                 <tr >
                                     <td class="column-date-of-birth-input">
                                         <div class="userrolecolumn21">
-                                            <select  class="userrolecolumn21input" name="userRole"  onchange="userRolePermissions(this)" value="<%=editUser.getRoleId()%>">
+                                            <select  class="userrolecolumn21input" name="userRole"  onchange="userRolePermissions(this.value)" value="<%=editUser.getRoleId()%>">
                                                 <option value="<%=editUser.getRoleId()%>">Select</option>
                                                 <option value=1>Admin</option>
                                                 <option value=0>User</option>
@@ -226,11 +226,12 @@
                                    data-show-remove="true" data-errors-position="inside" name="new-user-profile-image"
                                    data-allowed-file-extensions="png jpeg jpg gif" data-max-file-size="2M"
                                    value="<%=editUser.getImage()%>">
-
-                            <div class="cloud">
-                                <i class="ti-cloud-up"></i>
+                            <div class="cloud" style="align-items: center;margin-top: -8%;margin-left: 6%;">
+                                    <img src="data:image/jpg;base64,<%=editUser.getImage()%>" width="200px" height="120px" />
                             </div>
-                            Click here to choose any image
+                            <br/>
+                            <div style="display: flex;justify-content: center"> Click on image to Update </div>
+
                         </label>
                     </div>
                 </div>
@@ -320,45 +321,36 @@
         <%@include file ="UserPermission.js" %>
     </script>
     <script>
-
-
         var dashboardpermission=<%=session.getAttribute("dashboardpermission")%>;
         for (var i = 0; i < userDashboardPermission.length; i++) {
             var checkbox = userDashboardPermission[i];
             document.getElementById(checkbox).checked=dashboardpermission[i];
         }
-
         var settingpermission=<%=session.getAttribute("settingpermission")%>;
         for (var i = 0; i < userSettingPermission.length; i++) {
             var checkbox = userSettingPermission[i];
             document.getElementById(checkbox).checked=settingpermission[i];
         }
-
-
         var userpermission=<%=session.getAttribute("userpermission")%>;
         for (var i = 0; i < userInformationPermission.length; i++) {
             var checkbox = userInformationPermission[i];
             document.getElementById(checkbox).checked=userpermission[i];
         }
-
         var webPage1Permissions=<%=session.getAttribute("webpage1")%>;
         for (var i = 0; i < userW1Permission.length; i++) {
             var checkbox = userW1Permission[i];
             document.getElementById(checkbox).checked=webPage1Permissions[i];
         }
-
         var webPage2Permissions=<%=session.getAttribute("webpage2")%>;
         for (var i = 0; i < userW2Permission.length; i++) {
             var checkbox = userW2Permission[i];
             document.getElementById(checkbox).checked=webPage2Permissions[i];
         }
-
         var webPage3Permissions=<%=session.getAttribute("webpage3")%>;
         for (var i = 0; i < userW3Permission.length; i++) {
             var checkbox = userW3Permission[i];
             document.getElementById(checkbox).checked=webPage3Permissions[i];
         }
-
     </script>
 </form>
 

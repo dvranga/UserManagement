@@ -24,7 +24,6 @@ public class AdminController extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         User user =new User();
-
         user.setUserName(request.getParameter("username"));
         user.setPassword(request.getParameter("password"));
 
@@ -32,18 +31,11 @@ public class AdminController extends HttpServlet {
 
         user= LoginDao.validate(user);
         ArrayList dashboardpermission = LoginDao.getPermissions(user.getUser_id(), 1);
-        System.out.println(dashboardpermission+" dshboard permission");
         ArrayList settingpermission = LoginDao.getPermissions(user.getUser_id(), 2);
-        System.out.println(settingpermission+" settingpermission");
         ArrayList userpermission = LoginDao.getPermissions(user.getUser_id(), 3);
-        System.out.println(userpermission+" userpermission");
         ArrayList webpage1 =LoginDao.getPermissions(user.getUser_id(), 4);
-        System.out.println(webpage1+" webpage1");
         ArrayList webpage2 =LoginDao.getPermissions(user.getUser_id(), 5);
-        System.out.println(webpage2+" webpage2");
-
         ArrayList webpage3 =LoginDao.getPermissions(user.getUser_id(), 6);
-        System.out.println(webpage3+" webpage3");
 
         session.setAttribute("user",user);
         request.setAttribute("userRole", user.getRoleId());
@@ -58,7 +50,7 @@ public class AdminController extends HttpServlet {
             rd.forward(request,response);
         }
         else if (user.getRoleId()==0){
-            RequestDispatcher rd=request.getRequestDispatcher("dashboard");
+            RequestDispatcher rd=request.getRequestDispatcher("profile");
             rd.forward(request,response);
         }
         else{

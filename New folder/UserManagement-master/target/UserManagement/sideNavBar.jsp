@@ -23,9 +23,9 @@
     </button>
     <div class="user-container">
         <a href="newUser">New  User</a>
-        <a href="userListController?action=userList">Users  List</a>
+        <a href="userListController?action=showUsers&pageId=10">Users  List</a>
     </div>
-    <a href="profile"><i class="ti-id-badge"> </i>Profile</a>
+    <a href="userProfile"><i class="ti-id-badge"> </i>Profile</a>
     <button class="dropdown-user" id="settings-id"><i class="ti-settings"> </i>Settings
         <i class="fa fa-caret-left"></i>
     </button>

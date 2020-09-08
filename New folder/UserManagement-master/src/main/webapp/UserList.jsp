@@ -31,7 +31,12 @@
                 </a>
             </div>
             <div class="row">
-                <select class="form-control"><option>10</option><option>20</option><option>50</option><option>100</option>
+                <select class="form-control" onchange="window.location.href=this.value;">
+                    <option>select</option>
+                    <option id="users10"  value="userListController?action=showUsers&pageId=<%=10%>">10</option>
+                    <option id="users20"  value="userListController?action=showUsers&pageId=<%=20%>">20</option>
+                    <option id="users50"  value="userListController?action=showUsers&pageId=<%=50%>">50</option>
+                    <option id="users100"  value="userListController?action=showUsers&pageId=<%=100%>">100</option>
                 </select>
                 <input placeholder="Search..." id="myInput" onkeyup="myFunction()" type="text" class="search-box" title="Type in a name">
             </div>
@@ -73,19 +78,21 @@
                     <%}%>
                 </table>
                 <br/>
-                    <span style="display: flex">
-                    <% for (int i=0;i<=listOfUsers.size()/10+1;i++) { %>
+                <% int pageId = Integer.parseInt(request.getParameter("pageId"));%>
+                <div style="display: flex">
+                    <div>Records from <%=0%> to <%=pageId%>  </div> <br/>
+                    <% for (int i = 0; i <= listOfUsers.size() / pageId + 1; i++) { %>
                     <table>
-                        <td class="pagination" >
-                            <a href="userListController?action=pagination&pageId=<%=-10+(i*10)%>"><%=i+1%></a>
+                        <td class="pagination">
+                            <a href="userListController?action=pagination&pageId=<%=(i*pageId)%>&pageId2=<%=(i*pageId)+pageId%>"><div style="background-color: #0E9BE2"><%=i + 1%></div>
+                            </a>
                         </td>
                     </table>
                     <% }%>
-                </span>
+                </div>
             </div>
 
         </div>
-
 
 
     </div>
@@ -95,13 +102,14 @@
 <script>
     <%@page import="java.util.ArrayList" %><%@ page import="com.bridgelabz.usermanagement.model.User"%>
     <%@ page import="java.util.*" %>
+
     function myFunction() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInput");
         filter = input.value.toUpperCase();
         table = document.getElementById("users");
         tr = table.getElementsByTagName("tr");
-        console.log(tr.length,"length")
+        console.log(tr.length, "length")
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[1];
             if (td) {
@@ -114,8 +122,6 @@
             }
         }
     }
-
 </script>
-
 </body>
 </html>

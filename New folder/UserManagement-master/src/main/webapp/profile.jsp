@@ -3,17 +3,17 @@
 <head>
     <title>Profile</title>
     <style>
-        <%@include file="../css/profile.css"%>
+        <%@include file="css/profile.css"%>
     </style>
 </head>
 <body>
 
 <div class="header-panel">
-    <%@include file="header.jsp" %>
+    <%@include file="toolBar.jsp" %>
 </div>
 <div class="body-panel">
     <div class="sidenav-pannel">
-        <%@include file="sidebar.jsp"%>
+        <%@include file="sideNavBar.jsp"%>
     </div>
     <div class="main-content">
 
