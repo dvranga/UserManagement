@@ -6,12 +6,11 @@ import com.bridgelabz.usermanagement.model.User;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Blob;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.HashMap;
 
 public class UserListDAO {
 
@@ -37,8 +36,13 @@ public class UserListDAO {
                 user.setAddress(resultSet.getString("address"));
                 user.setUserName(resultSet.getString("user_name"));
                 user.setPassword(resultSet.getString("password"));
+                user.setStatus(resultSet.getBoolean("status")==true?"Active":"InActive");
                 user.setRoleId(resultSet.getInt("role_id"));
                 Blob image = resultSet.getBlob("image");
+                java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                Timestamp creator_stamp = resultSet.getTimestamp("creator_stamp");
+                user.setCreator_stamp((getRestrationTime(dateFormat.format(creator_stamp))));
+                String creator_user = resultSet.getString("creator_user");
                 InputStream inputStream=image.getBinaryStream();
                 ByteArrayOutputStream outputStream=new ByteArrayOutputStream();
                 byte[] buffer=new byte[4096];
@@ -52,6 +56,7 @@ public class UserListDAO {
                 outputStream.close();
                 userList.add(user);
             }
+            System.out.println(userList+"  userList");
             return userList;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -60,5 +65,37 @@ public class UserListDAO {
         }
 
         return userList;
+    }
+    public static String getRestrationTime(String time){
+        String result ="";
+        HashMap<String, String> months=new HashMap<>();
+        months.put("01","Jan");
+        months.put("02","Feb");
+        months.put("03","Mar");
+        months.put("04","Apr");
+        months.put("05","May");
+        months.put("06","Jun");
+        months.put("07","July");
+        months.put("08","Aug");
+        months.put("09","Sep");
+        months.put("10","Oct");
+        months.put("11","Nov");
+        months.put("12","Dec");
+        char[] timeArray = time.toCharArray();
+        result=months.get(timeArray[5] + String.valueOf(timeArray[6]))+" ";
+        result+=time.substring(8,10)+" ";
+        result+=time.substring(0,4)+" ";
+        int hours = Integer.parseInt(time.substring(11, 13));
+        if(hours>12){
+            hours=hours-12;
+            result+=hours;
+            result+=time.substring(13,16)+"PM";
+
+        }
+        else {
+            result+=hours+time.substring(13,16)+"AM";
+        }
+
+        return result;
     }
 }

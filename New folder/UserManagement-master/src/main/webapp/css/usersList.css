@@ -140,7 +140,8 @@ td, th {
 .pagination {
     widows: 10;
     border: 1px solid #cccccc;
-    color: #00a0f0;
+    color: white;
+    background-color: #00a0f0;
 }
 
 .user-container {

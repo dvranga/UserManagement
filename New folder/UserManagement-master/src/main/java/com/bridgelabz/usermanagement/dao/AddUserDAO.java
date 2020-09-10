@@ -8,6 +8,9 @@ import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class AddUserDAO {
 
@@ -36,11 +39,13 @@ public class AddUserDAO {
         return false;
     }
 
-    public boolean addUser(User user, InputStream image){
+    public boolean addUser(User user, InputStream image, String creator_user){
 
         try {
             PreparedStatement preparedStatement = connection.getConnection().prepareStatement("" +
-                    "INSERT INTO `user_management`.`user_details` (`first_name`, `middle_name`, `last_name`, `date_of_birth`, `gender`, `country`, `phone`, `phone_ext`, `email`, `address`, `user_name`, `password`, `role_id`, `image`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?);");
+                    "INSERT INTO `user_management`.`user_details` (`first_name`, `middle_name`, `last_name`, `date_of_birth`, `gender`, `country`," +
+                    " `phone`, `phone_ext`, `email`, `address`, `user_name`, `password`, `status`, `role_id`, `image`, `creator_stamp`, `creator_user`)" +
+                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
             preparedStatement.setString(1, user.getFirstName());
             preparedStatement.setString(2, user.getMiddleName());
             preparedStatement.setString(3,user.getLastName());
@@ -53,8 +58,11 @@ public class AddUserDAO {
             preparedStatement.setString(10,user.getAddress());
             preparedStatement.setString(11,user.getUserName());
             preparedStatement.setString(12,user.getPassword());
-            preparedStatement.setInt(13,user.getRoleId());
-            preparedStatement.setBlob(14,image);
+            preparedStatement.setBoolean(13,true);
+            preparedStatement.setInt(14,user.getRoleId());
+            preparedStatement.setBlob(15,image);
+            preparedStatement.setTimestamp(16, java.sql.Timestamp.valueOf(LocalDateTime.now()));
+            preparedStatement.setString(17,creator_user);
 
             int result = preparedStatement.executeUpdate();
             return (result!=0);

@@ -68,9 +68,9 @@
     padding: 2%;
 }
 .widget-container {
-    height: 100%;
+    height: 100px;
     display: flex;
-    width: 100%;
+    width: 180px;
 }
 .widget-left{
     width: 35%;
@@ -84,14 +84,15 @@
 
 .widget-right {
     display: block;
-    width: 50%;
-    padding-left: 3%;
+    width: 50px;
+    padding-left: 3px;
     float: left;
-    margin-left: -10%;
-    margin-top: -3%;
+    margin-left: -5px;
+    margin-top: -5px;
+    position: relative;
 }
 .icon-wrapper{
-    border-radius: 50%;
+    border-radius: 50px;
     width: 50px;
     height: 50px;
     float: left;
@@ -100,8 +101,8 @@
     overflow: hidden;
     cursor: pointer;
     box-sizing: border-box;
-    margin: 4%;
-    padding: 15%;
+    margin: 4px;
+    padding: 15px;
     font-size: 17px;
     margin-top: -10px;
 }
@@ -115,23 +116,27 @@
     color: #008fd6;
     padding-top:5%;
 }
+
+
+
+
 .main-container {
     margin-top: 2%;
     margin-left: 2%;
     display: flex;
-    height: 95%;
-    width: 93.3%;
+    height: 85%;
+    width: 92.3%;
 }
 .graphic-container{
-    width: 75%;
+    width: 71%;
     background-color: #FFFFFF;
     border: 1px solid #d1d6e6;
     display: block;
 }
 .registration-container{
     margin-left: 3%;
-    width: 30%;
-    height: 80%;
+    width: 390px;
+    height: 500px;
     background-color: #FFFFFF;
     border: 1px solid #d1d6e6;
     display: block;
@@ -173,24 +178,25 @@
 
 }
 .graphic-right{
-    width: 35%;
-    height: 100%;
-    padding-left: 3%;
+    width: 25%;
+    height: 173%;
+    padding-left: 1%;
     border-left: 2px solid #eaeff2;
 }
 .location-section{
     display: block;
 }
 .section-heading{
-    font-size: 23px;
+    font-size: 15px;
     padding: 5% 5%;
     color: #5e6773;
     font-weight: 550;
     font-family: Sans-Serif;
+    margin-top: 4%;
 
 }
 .location-table{
-    margin-top: 2%;
+    margin-top: 0%;
     width: 100%;
     font-size: 20px;
 }
@@ -198,10 +204,13 @@
     text-align: left;
     padding: 2% 4%;
     color: #5e6773;
+    font-size: 15px;
 }
 .locations-link{
     color: #00a0f0;
     padding: 5%;
+    font-size: 13px;
+    margin-top: -3%;
 }
 .gender-section{
     display: block;
@@ -215,7 +224,7 @@
     text-align: left;
     padding: 3% 4%;
     color: #5e6773;
-    font-size: 20px;
+    font-size: 15px;
     width: 80%;
 }
 
@@ -303,4 +312,111 @@ div.overflow{
 }
 .overflow::-webkit-scrollbar {
     display: none;
+}
+.alltimebuttons{
+    display: flex;
+    font-family: "Lato", sans-serif;
+}
+.button-alltime,.button-2020,.button-month{
+    color: white;
+    background-color: #5bc0de;
+    border-color: #4ebbdb;
+    outline-color: #4ebbdb;
+}
+.button-alltime{
+    width: 85px;
+    height: 30px;
+    margin-top: 40%;
+    margin-left: 25%;
+    border: 1px solid;
+    border-radius: 4px;
+}
+.button-2020{
+    width: 85px;
+    height: 30px;
+    margin-top: 40%;
+    margin-left: 29.989%;
+    border: 1px solid;
+    border-radius: 4px;
+}
+.button-month{
+    width: 85px;
+    height: 30px;
+    margin-top: 40%;
+    margin-left: 35%;
+    border: 1px solid;
+    border-radius: 4px;
+}
+.malepercent{
+    width: 150%;
+    background-color: #ddd;
+    border-radius:20px;
+}
+.maleprogressbar{
+    text-align: right;
+    color: rgba(32, 178, 170, 0.2);
+    border-radius:50px;
+    height: 5px;
+}
+
+.malehtmlstyle {width: 90%; background-color: #20B2AA;}
+
+.femalepercent{
+    width: 150%;
+    background-color: #ddd;
+    border-radius:20px;
+}
+.femaleprogressbar{
+    text-align: right;
+    color: rgba(32, 178, 170, 0.2);
+    border-radius:50px;
+    height: 5px;
+}
+.femalehtmlstyle {width: 30%; background-color:  #20B2AA;}
+
+.age-section {
+    margin-top: 10%;
+}
+
+.age-group{
+    color: #5e6a78;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19px;
+    padding: 0px 25px;
+}
+.age-18{
+    width: 60%;
+    height: 15px;
+    background-color: #ffde7b;
+}
+.age-18{
+    width: 30%;
+    height: 15px;
+    background-color: #ffde7b;
+}
+.age-23{
+    width: 60%;
+    height: 15px;
+    background-color: #ffde7b;
+}
+.age-28{
+    width: 40%;
+    height: 15px;
+    background-color: #ffde7b;
+}
+.age-33{
+    width: 30%;
+    height: 15px;
+    background-color: #ffde7b;
+}
+.age-42{
+    width: 150%;
+    height: 15px;
+    background-color: #ffde7b;
+}
+.age-under-18{
+    width: 10%;
+    height: 15px;
+    background-color: #ffde7b;
 }

@@ -2,6 +2,7 @@ package com.bridgelabz.usermanagement.model;
 
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class User {
     private int user_id;
@@ -20,6 +21,26 @@ public class User {
     private String status;
     private int roleId;
     private String image;
+    private String creator_stamp;
+
+
+    public String getCreator_stamp() {
+        return creator_stamp;
+    }
+
+    public void setCreator_stamp(String creator_stamp) {
+        this.creator_stamp = creator_stamp;
+    }
+
+    public String getCreator_user() {
+        return creator_user;
+    }
+
+    public void setCreator_user(String creator_user) {
+        this.creator_user = creator_user;
+    }
+
+    private String creator_user;
 
     public String getStatus() {
         return status;

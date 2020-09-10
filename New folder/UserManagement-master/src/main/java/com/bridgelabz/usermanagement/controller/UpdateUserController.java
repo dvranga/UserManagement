@@ -1,13 +1,11 @@
 package com.bridgelabz.usermanagement.controller;
 
 import com.bridgelabz.usermanagement.dao.AddUserDAO;
-import com.bridgelabz.usermanagement.dao.LoginDao;
 import com.bridgelabz.usermanagement.dao.UpdateUserDAO;
 import com.bridgelabz.usermanagement.model.Permissions;
 import com.bridgelabz.usermanagement.model.User;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.*;

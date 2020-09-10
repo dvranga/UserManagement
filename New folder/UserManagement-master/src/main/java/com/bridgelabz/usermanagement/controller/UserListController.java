@@ -1,7 +1,7 @@
 package com.bridgelabz.usermanagement.controller;
 
 import com.bridgelabz.usermanagement.dao.DeleteUserDAO;
-import com.bridgelabz.usermanagement.dao.LoginDao;
+import com.bridgelabz.usermanagement.dao.LoginDAO;
 import com.bridgelabz.usermanagement.dao.UserListDAO;
 import com.bridgelabz.usermanagement.model.User;
 
@@ -36,13 +36,13 @@ public class UserListController extends HttpServlet {
         }
          else if (action.equals("edit")) {
             int userId = Integer.parseInt(request.getParameter("userId"));
-            User userDetailsByUserId = LoginDao.getUserDetailsByUserId(userId);
-            ArrayList dashboardpermission = LoginDao.getPermissions(userId, 1);
-            ArrayList settingpermission = LoginDao.getPermissions(userId, 2);
-            ArrayList userpermission = LoginDao.getPermissions(userId, 3);
-            ArrayList webpage1 =LoginDao.getPermissions(userId, 4);
-            ArrayList webpage2 =LoginDao.getPermissions(userId, 5);
-            ArrayList webpage3 =LoginDao.getPermissions(userId, 6);
+            User userDetailsByUserId = LoginDAO.getUserDetailsByUserId(userId);
+            ArrayList dashboardpermission = LoginDAO.getPermissions(userId, 1);
+            ArrayList settingpermission = LoginDAO.getPermissions(userId, 2);
+            ArrayList userpermission = LoginDAO.getPermissions(userId, 3);
+            ArrayList webpage1 = LoginDAO.getPermissions(userId, 4);
+            ArrayList webpage2 = LoginDAO.getPermissions(userId, 5);
+            ArrayList webpage3 = LoginDAO.getPermissions(userId, 6);
             session.setAttribute("dashboardpermission",dashboardpermission);
             session.setAttribute("settingpermission",settingpermission);
             session.setAttribute("userpermission",userpermission);

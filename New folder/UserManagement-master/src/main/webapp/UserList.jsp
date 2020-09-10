@@ -20,7 +20,7 @@
             <div class="title-name">Users</div>
             <div class="title-link">
                 <i style="margin-left: 50%" class="fa fa-home"></i>
-                <a class="home-icon" href="dashboard.jsp">Home</a>
+                <a class="home-icon" href="dashboard1.jsp">Home</a>
                 <a> / Users</a>
             </div>
         </div>
@@ -65,7 +65,7 @@
                         <td><%=fullName%></td>
                         <td><%=user.getEmail()%></td>
                         <td><%=user.getDateOfBirth()%></td>
-                        <td>Active</td>
+                        <td><%=user.getStatus()%></td>
                         <% int roleId = user.getRoleId();
                             String role=(roleId==1)?"Admin":"User";
                         %>
@@ -80,7 +80,7 @@
                 <br/>
                 <% int pageId = Integer.parseInt(request.getParameter("pageId"));%>
                 <div style="display: flex">
-                    <div>Records from <%=0%> to <%=pageId%>  </div> <br/>
+                    <div style="margin-top: -1%"><br/><div></div>Records from <%=0%> to <%=pageId%>  </div> <br/>
                     <% for (int i = 0; i <= listOfUsers.size() / pageId + 1; i++) { %>
                     <table>
                         <td class="pagination">

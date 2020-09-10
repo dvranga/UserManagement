@@ -1,7 +1,8 @@
 package com.bridgelabz.usermanagement.controller;
 
 
-import com.bridgelabz.usermanagement.dao.LoginDao;
+import com.bridgelabz.usermanagement.dao.DashboardDAO;
+import com.bridgelabz.usermanagement.dao.LoginDAO;
 import com.bridgelabz.usermanagement.dao.UserListDAO;
 import com.bridgelabz.usermanagement.model.User;
 
@@ -14,7 +15,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.List;
 
 public class AdminController extends HttpServlet {
 
@@ -29,13 +29,13 @@ public class AdminController extends HttpServlet {
 
         HttpSession session = request.getSession(true);
 
-        user= LoginDao.validate(user);
-        ArrayList dashboardpermission = LoginDao.getPermissions(user.getUser_id(), 1);
-        ArrayList settingpermission = LoginDao.getPermissions(user.getUser_id(), 2);
-        ArrayList userpermission = LoginDao.getPermissions(user.getUser_id(), 3);
-        ArrayList webpage1 =LoginDao.getPermissions(user.getUser_id(), 4);
-        ArrayList webpage2 =LoginDao.getPermissions(user.getUser_id(), 5);
-        ArrayList webpage3 =LoginDao.getPermissions(user.getUser_id(), 6);
+        user= LoginDAO.validate(user);
+        ArrayList dashboardpermission = LoginDAO.getPermissions(user.getUser_id(), 1);
+        ArrayList settingpermission = LoginDAO.getPermissions(user.getUser_id(), 2);
+        ArrayList userpermission = LoginDAO.getPermissions(user.getUser_id(), 3);
+        ArrayList webpage1 = LoginDAO.getPermissions(user.getUser_id(), 4);
+        ArrayList webpage2 = LoginDAO.getPermissions(user.getUser_id(), 5);
+        ArrayList webpage3 = LoginDAO.getPermissions(user.getUser_id(), 6);
 
         session.setAttribute("user",user);
         request.setAttribute("userRole", user.getRoleId());
@@ -43,14 +43,27 @@ public class AdminController extends HttpServlet {
         session.setAttribute("webpage1", webpage1);
         session.setAttribute("webpage2", webpage2);
         session.setAttribute("webpage3", webpage3);
-
+        session.setAttribute("dashboardpermission",dashboardpermission);
+        session.setAttribute("settingpermission",settingpermission);
+        session.setAttribute("userpermission",userpermission);
+        session.setAttribute("totalUsers", DashboardDAO.getNoRecords());
+        session.setAttribute("activeusers", DashboardDAO.getActiveRecords());
+        session.setAttribute("inactiveUsers", DashboardDAO.getInActiveRecords());
+        session.setAttribute("toplocatons", DashboardDAO.getTopLocations());
+        System.out.println(DashboardDAO.getTopLocations()+" top locations Admin");
+        session.setAttribute("malePercentage", DashboardDAO.getMalePercentage());
+        session.setAttribute("femalePercentage", DashboardDAO.getFemalePercentage());
+        session.setAttribute("lastLoginDetails",DashboardDAO.getLastLoggedInDetails(user.getUser_id()));
+        System.out.println(DashboardDAO.getLastLoggedInDetails(user.getUser_id())+"      last login////////////");
+        ArrayList<User> listOfUsers = UserListDAO.getUserList();
+        session.setAttribute("listOfUsers", listOfUsers);
         System.out.println(user.getRoleId()+" roleId");
         if(user.getRoleId()==1){
             RequestDispatcher rd=request.getRequestDispatcher("dashboard");
             rd.forward(request,response);
         }
         else if (user.getRoleId()==0){
-            RequestDispatcher rd=request.getRequestDispatcher("profile");
+            RequestDispatcher rd=request.getRequestDispatcher("userProfile");
             rd.forward(request,response);
         }
         else{

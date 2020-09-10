@@ -8,10 +8,7 @@ import com.bridgelabz.usermanagement.model.User;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+import javax.servlet.http.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,6 +19,8 @@ public class AddUserController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        HttpSession httpSession=request.getSession();
+        User admin = (User) httpSession.getAttribute("user");
         response.setContentType("text/html");
         String firstName=request.getParameter("firstName");
         System.out.println(firstName+" firstname");
@@ -80,7 +79,7 @@ public class AddUserController extends HttpServlet {
 
         AddUserDAO addUserDao=new AddUserDAO();
         int userId=0;
-        if(addUserDao.addUser(user, imageStream)){
+        if(addUserDao.addUser(user, imageStream, admin.getUserName() )){
             userId=addUserDao.getUserId(userName);
         }else {
             System.out.println("failed");

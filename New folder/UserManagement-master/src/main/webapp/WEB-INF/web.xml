@@ -163,6 +163,16 @@
         <url-pattern>/userProfile</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>dashboardController</servlet-name>
+        <servlet-class>com.bridgelabz.usermanagement.controller.DashboardController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dashboardController</servlet-name>
+        <url-pattern>/dashboardController</url-pattern>
+    </servlet-mapping>
+
     <context-param>
         <param-name>host</param-name>
         <param-value>smtp.gmail.com</param-value>

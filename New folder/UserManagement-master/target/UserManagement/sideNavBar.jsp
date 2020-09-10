@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="mySidenav" class="sidenav">
-    <a href="dashboard" id="dashboard-id"><i class="ti-dashboard"> </i>Dashboard</a>
+    <a href="dashboardController" id="dashboard-id"><i class="ti-dashboard"> </i>Dashboard</a>
     <button class="dropdown-user"><i class="ti-files"></i>  WebPages
         <i class="fa fa-caret-left"></i>
     </button>
