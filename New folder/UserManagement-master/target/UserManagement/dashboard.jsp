@@ -1,13 +1,16 @@
 <%@ page import="com.bridgelabz.usermanagement.model.Location" %>
-<%@ page import="com.bridgelabz.usermanagement.model.User" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.bridgelabz.usermanagement.dao.RegistrationGraphDetails" %>
 <html>
 
 <head>
     <title>User Dashboard</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
     <style>
         <%@include file="css/dashboard.css"%></style>
+
 </head>
 <body style="background-color: #F5F6F9;margin: 0">
 <%User user=(User)session.getAttribute("user");%>
@@ -98,55 +101,45 @@
                             <tr>
                                 <td>
                                     <button class="button-alltime">
-                                        <a> All Time</a>
+                                        <a onclick="getDetails(<%=session.getAttribute("registrationDetails")%>)"> All Time</a>
                                     </button>
                                 </td>
                                 <td>
-                                    <button class="button-2020">
-                                        <a> 2020</a>
+                                    <button class="button-2020" >
+                                        <a onclick="getDetails(<%=session.getAttribute("registerMonthDetails")%>)">2020</a>
                                     </button>
                                 </td>
                                 <td>
-                                    <button class="button-month">
-                                        <a>September</a>
+                                    <button class="button-month" >
+                                        <a onclick="getDetails(<%=session.getAttribute("registerYearDetails")%>)">September</a>
                                     </button>
                                 </td>
                             </tr>
                         </table>
                     </div>
+                </div>
+                <div class="enlarge-graph">
+                    <div class="canvas">
+                        <canvas  style=" display: block; height: 380px; width: 540px; margin-left: 2%; margin-top: 9%"  id="lineChart" />
+                    </div>
+                </div>
+
                     <div class="graphic-right">
                         <div class="location-section">
                             <div class="section-heading">
                                 Top Location
                             </div>
                             <div class="location-table-container">
-                                <%List<Location> locations= (ArrayList<Location>) session.getAttribute("toplocations");%>
+                                <% List<Location> toplocations = (List<Location>) session.getAttribute("toplocations");%>
+                                <%for (int k = 1; k <= toplocations.size(); k++) {%>
                                 <table class="location-table" >
                                     <tr>
-                                        <td>1</td>
-                                        <td>Pakistan</td>
-                                        <td>44</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>India</td>
-                                        <td>6</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>America</td>
-                                        <td>60</td>
+                                        <td style="width: 10px"><%=k%></td>
+                                        <td style="width: 500px"><%=toplocations.get(k-1).getCountryName()%></td>
+                                        <td style="width: 50px"><%=toplocations.get(k-1).getUsersCount()%></td>
                                     </tr>
                                 </table>
-<%--                                <%for (int k = 1; k < locations.size(); k++) {%>--%>
-<%--                                    <table class="location-table" >--%>
-<%--                                        <tr>--%>
-<%--                                            <td><%=k%></td>--%>
-<%--                                            <td style="width: 60%"><%=locations.get(k-1).getCountryName()%></td>--%>
-<%--                                            <td style="width: 30%"><%=locations.get(k-1).getUsersCount()%></td>--%>
-<%--                                        </tr>--%>
-<%--                                    </table>--%>
-<%--                                <%}%>--%>
+                                <%}%>
                                 <div class="locations-link">
                                     <a>See All Locations</a>
                                 </div>
@@ -165,7 +158,10 @@
                                     <tr>
                                         <td>
                                             <div class="malepercent">
-                                                <div class="maleprogressbar malehtmlstyle"></div>
+                                                <div class="maleprogressbar malehtmlstyle" id="male"></div>
+                                                <script>
+                                                    document.getElementById("male").style.width=<%=session.getAttribute("malePercentage")%>*2
+                                                </script>
                                             </div>
                                         </td>
                                     </tr>
@@ -176,7 +172,10 @@
                                     <tr>
                                         <td>
                                             <div class="femalepercent">
-                                                <div class="femaleprogressbar femalehtmlstyle"></div>
+                                                <div class="femaleprogressbar femalehtmlstyle" id="female"></div>
+                                                <script>
+                                                    document.getElementById("female").style.width=<%=session.getAttribute("femalePercentage")%>*2
+                                                </script>
                                             </div>
                                         </td>
                                     </tr>
@@ -190,12 +189,16 @@
                         </div>
                         <div>
                             <table class="age-group">
+                                <% List ageList = (List) session.getAttribute("ageGroup");%>
                                 <tr >
                                     <td style="width: 10px">
                                         18-22
                                     </td>
                                     <td style="width: 50px">
-                                        <div class="age-18"></div>
+                                        <div id="18" class="age-18"><span class="hover-age-18"> 18-22 users : <%=ageList.get(0)%></span></div>
+                                        <script>
+                                            document.getElementById("18").style.width=<%=ageList.get(0)%>*5
+                                        </script>
                                     </td>
                                 </tr>
                                 <tr>
@@ -203,7 +206,10 @@
                                         23-27
                                     </td>
                                     <td style="width: 50px">
-                                        <div class="age-23"></div>
+                                        <div  id=23 class="age-23"><span class="hover-age-23"> 23-27 users : <%=ageList.get(1)%></span></div>
+                                        <script>
+                                            document.getElementById("23").style.width=<%=ageList.get(1)%>*5
+                                        </script>
                                     </td>
                                 </tr>
                                 <tr>
@@ -211,15 +217,33 @@
                                         28-32
                                     </td>
                                     <td style="width: 50px">
-                                        <div class="age-28"></div>
+                                        <div  id=28 class="age-28"><span class="hover-age-28"> 28-32 users : <%=ageList.get(2)%></span></div>
+                                        <script>
+                                            document.getElementById("28").style.width=<%=ageList.get(2)%>*5
+                                        </script>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        33-42
+                                        33-37
                                     </td>
                                     <td style="width: 50px">
-                                        <div class="age-33"></div>
+                                        <div id=33 class="age-33"><span class="hover-age-33"> 33-37 users : <%=ageList.get(3)%></span></div>
+                                            <script>
+                                                document.getElementById("33").style.width=<%=ageList.get(3)%>*5
+                                            </script>
+                                    </td>
+                                </tr>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        38-42
+                                    </td>
+                                    <td style="width: 50px">
+                                        <div id=38 class="age-38"><span class="hover-age-38"> 38-42 users : <%=ageList.get(4)%></span></div>
+                                        <script>
+                                            document.getElementById("38").style.width=<%=ageList.get(4)%>*5
+                                        </script>
                                     </td>
                                 </tr>
                                 <tr>
@@ -227,23 +251,29 @@
                                         over 42
                                     </td>
                                     <td style="width: 50px">
-                                        <div class="age-42"></div>
+                                        <div id=42 class="age-42"><span class="hover-age-42"> over 42 users : <%=ageList.get(5)%></span></div>
                                     </td>
+                                    <script>
+                                        document.getElementById("42").style.width=<%=ageList.get(5) %>*5
+                                    </script>
                                 </tr>
                                 <tr>
                                     <td>
                                         under 18
                                     </td>
                                     <td style="width: 50px">
-                                        <div class="age-under-18"></div>
+                                        <div id=17 class="age-under-18"><span class="hover-age-under-18"> under 18 users : <%=ageList.get(6)%></span></div>
                                     </td>
+                                    <script>
+                                        document.getElementById("17").style.width=<%=ageList.get(6)%>*5
+                                    </script>
                                 </tr>
                             </table>
                         </div>
 
                     </div>
-                </div>
             </div>
+        </div>
             <div class="registration-container">
                 <div class="registration-header-pannel">
                     <div class="Latest">Latest registration</div>
@@ -270,14 +300,61 @@
                                 </div>
                             </td>
                         </tr>
-                </table>
-                <%}%>
+                    </table>
+                    <%}%>
                 </div>
             </div>
         </div>
         <div class="footer">
         </div>
     </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script type="text/javascript" src="jscript/graph.js"></script>
+
 </div>
+<script>
+    window.onload = function() {
+        getDetails(<%=session.getAttribute("registrationDetails")%>);
+    };
+</script>
+<script>
+    function getDetails(value) {
+        console.log(value, "get Details")
+        if (value == null) {
+            value=<%=session.getAttribute("registrationDetails")%>;
+        }
+        var ctxL = document.getElementById("lineChart").getContext('2d');
+        var myLineChart = new Chart(ctxL, {
+            type: 'line',
+            data: {
+                labels: ["September", "October", "November", "December", "January", "February", "March", "April", "May", "June", "July", "August"],
+                datasets: [{
+
+                    data:value ,
+                    borderColor: [
+                        '#007bff',
+                    ],
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+
+                },]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                legend: {
+                    display: false
+                }
+            }
+        });
+    }
+</script>
 </body>
 </html>

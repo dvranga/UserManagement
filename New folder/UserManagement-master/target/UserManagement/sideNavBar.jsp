@@ -1,10 +1,10 @@
+<%@ page import="com.bridgelabz.usermanagement.model.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <style>
         <%@include file="css/sideNavBar.css"%>
     </style>
-
 </head>
 <body>
 <div id="mySidenav" class="sidenav">
@@ -34,7 +34,7 @@
         <a href="#">Email SMTP</a>
         <a href="#">Database Connection</a>
     </div>
-    <a href="logout"><i class="ti-power-off"> </i> Logout</a>
+    <a href="logoutController"><i class="ti-power-off"> </i> Logout</a>
     <div class="tab-close-button">
         <i style="color:white; margin-left: 50px; cursor: pointer"
            class="ti-arrows-horizontal" onclick="toggleNav()"> </i>
@@ -60,6 +60,7 @@
 
     var userRole=${userRole}
         console.log(userRole, "userRole")
+
     if(userRole==="Admin"){
         document.getElementById("dashboard-id").style.display="block"
         document.getElementById("user-id").style.display="block"

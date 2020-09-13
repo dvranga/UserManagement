@@ -13,13 +13,28 @@ public class UpdateUserDAO {
 
     DataBaseConfiguration connection=new DataBaseConfiguration();
 
+    public  static void setStatus(String username, Boolean aBoolean) {
+
+        DataBaseConfiguration connection=new DataBaseConfiguration();
+        try {
+            PreparedStatement preparedStatement=connection.getConnection().prepareStatement("" +
+                    "UPDATE `user_management`.`user_details` SET  `status` = ? WHERE `user_name`=?;");
+            preparedStatement.setBoolean(1,aBoolean);
+            preparedStatement.setString(2,username);
+            int resultSet = preparedStatement.executeUpdate();
+            System.out.println(resultSet+" inactive status");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public boolean updatePermissions(int userId, int menuId, boolean add, boolean delete, boolean modify, boolean read){
 
         try {
             PreparedStatement preparedStatement = connection.getConnection().prepareStatement("" +
                     "UPDATE `user_management`.`user_permissions` SET  `add` = ?, `delete` = ?, `modify` = ?, `read` = ? WHERE `user_id` = ? AND `web_page_id`=?;");
-
-
             preparedStatement.setBoolean(1, add);
             preparedStatement.setBoolean(2, delete);
             preparedStatement.setBoolean(3, modify);
@@ -33,7 +48,6 @@ public class UpdateUserDAO {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return false;
     }
 
@@ -56,7 +70,6 @@ public class UpdateUserDAO {
             preparedStatement.setInt(13,user.getRoleId());
             preparedStatement.setBlob(14,image);
             preparedStatement.setInt(15,user_id);
-
             int result = preparedStatement.executeUpdate();
             return (result!=0);
         } catch (SQLException e) {
@@ -64,8 +77,8 @@ public class UpdateUserDAO {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return false;
     }
+
 
 }

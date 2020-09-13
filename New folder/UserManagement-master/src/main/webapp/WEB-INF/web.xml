@@ -116,16 +116,6 @@
         <url-pattern>/dashboard</url-pattern>
     </servlet-mapping>
 
-
-    <servlet>
-        <servlet-name>logout</servlet-name>
-        <jsp-file>/logout.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>logout</servlet-name>
-        <url-pattern>/logout</url-pattern>
-    </servlet-mapping>
-
     <servlet>
         <servlet-name>webpage1</servlet-name>
         <jsp-file>/webpage1.jsp</jsp-file>
@@ -172,6 +162,16 @@
         <servlet-name>dashboardController</servlet-name>
         <url-pattern>/dashboardController</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>com.bridgelabz.usermanagement.controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logoutController</url-pattern>
+    </servlet-mapping>
+
 
     <context-param>
         <param-name>host</param-name>

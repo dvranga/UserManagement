@@ -66,11 +66,13 @@
     margin-left: 2%;
     float: left;
     padding: 2%;
+    margin-left: 2%;
 }
 .widget-container {
-    height: 100px;
+    height: 50px;
     display: flex;
     width: 180px;
+    padding:3% 2%;
 }
 .widget-left{
     width: 35%;
@@ -134,7 +136,8 @@
     display: block;
 }
 .registration-container{
-    margin-left: 3%;
+    margin-left: 70%;
+    margin-top: -44.5%;
     width: 390px;
     height: 500px;
     background-color: #FFFFFF;
@@ -175,13 +178,15 @@
 .graphic-left{
     width: 65%;
     height: 100%;
-
 }
+
 .graphic-right{
-    width: 25%;
-    height: 173%;
+    width: 28%;
+    height: 100%;
     padding-left: 1%;
     border-left: 2px solid #eaeff2;
+    margin-left: 67%;
+    margin-top: -64%;
 }
 .location-section{
     display: block;
@@ -192,7 +197,7 @@
     color: #5e6773;
     font-weight: 550;
     font-family: Sans-Serif;
-    margin-top: 4%;
+    margin-top: 0%;
 
 }
 .location-table{
@@ -228,11 +233,15 @@
     width: 80%;
 }
 
+
+
+
+
 .footer{
     height: 5%;
 }
 .age-section{
-
+    margin-top: 5%;
 }
 .registartion-box{
     background-color: #1DBB8E;
@@ -261,6 +270,11 @@ span{
 .all-time{
     margin-top: -1%;
 }
+
+
+
+
+
  .latest-registation-table {
     border-collapse: collapse;
     border-bottom: 1px solid #efeef2;
@@ -347,6 +361,10 @@ div.overflow{
     border: 1px solid;
     border-radius: 4px;
 }
+
+
+
+
 .malepercent{
     width: 150%;
     background-color: #ddd;
@@ -375,7 +393,7 @@ div.overflow{
 .femalehtmlstyle {width: 30%; background-color:  #20B2AA;}
 
 .age-section {
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .age-group{
@@ -385,11 +403,7 @@ div.overflow{
     line-height: 19px;
     padding: 0px 25px;
 }
-.age-18{
-    width: 60%;
-    height: 15px;
-    background-color: #ffde7b;
-}
+
 .age-18{
     width: 30%;
     height: 15px;
@@ -410,6 +424,12 @@ div.overflow{
     height: 15px;
     background-color: #ffde7b;
 }
+
+.age-38{
+    width: 40%;
+    height: 15px;
+    background-color: #ffde7b;
+}
 .age-42{
     width: 150%;
     height: 15px;
@@ -419,4 +439,75 @@ div.overflow{
     width: 10%;
     height: 15px;
     background-color: #ffde7b;
+}
+.graph-main{
+    display:block;
+}
+.graph-line{
+    display: block;
+    height: 208px;
+    width: 624px;
+}
+/*.canvas{*/
+/*    display: block;*/
+/*    width: 442px;*/
+/*    height: 324px;*/
+/*    margin-top: 30%;*/
+/*    margin-left: -85%;*/
+/*}*/
+.canvas{
+    display: block;
+    height: 430px;
+    width: 540px;
+    margin-left: 5px;
+}
+.canvasgraph{
+    display: block;
+    height: 400px;
+    width: 540px;
+    margin-top: 10%;
+}
+.enlarge-graph{
+}
+
+
+
+.age-18,  .age-23, .age-28, .age-33, .age-38, .age-42, .age-under-18  {
+    position: relative;
+    display: inline-block;
+}
+
+
+.age-18 .hover-age-18 , .age-23 .hover-age-23,  .age-28 .hover-age-28, .age-33 .hover-age-33, .age-38 .hover-age-38, .age-42 .hover-age-42, .age-under-18 .hover-age-under-18{
+    visibility: hidden;
+    width: 60px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.age-18 .hover-age-18::after, .age-23 .hover-age-23::after, .age-28 .hover-age-28::after, .age-33 .hover-age-33::after, .age-38 .hover-age-38::after, .age-42 .hover-age-42::after, .age-under-18 .hover-age-under-18::after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+
+.age-18:hover .hover-age-18 ,.age-23:hover .hover-age-23, .age-28:hover .hover-age-28, .age-33:hover .hover-age-33, .age-38:hover .hover-age-38, .age-42:hover .hover-age-42, .age-under-18:hover .hover-age-under-18{
+    visibility: visible;
+    opacity: 1;
 }

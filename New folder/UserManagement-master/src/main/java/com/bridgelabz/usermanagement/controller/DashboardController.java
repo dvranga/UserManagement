@@ -21,8 +21,7 @@ public class DashboardController extends HttpServlet {
         session.setAttribute("totalUsers", DashboardDAO.getNoRecords());
         session.setAttribute("activeusers", DashboardDAO.getActiveRecords());
         session.setAttribute("inactiveUsers", DashboardDAO.getInActiveRecords());
-        session.setAttribute("toplocatons", DashboardDAO.getTopLocations());
-        System.out.println(DashboardDAO.getTopLocations()+" top locations controller");
+        session.setAttribute("toplocations", DashboardDAO.getTopLocations());
         session.setAttribute("malePercentage", DashboardDAO.getMalePercentage());
         session.setAttribute("femalePercentage", DashboardDAO.getFemalePercentage());
         ArrayList<User> listOfUsers = UserListDAO.getUserList();

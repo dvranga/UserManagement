@@ -61,7 +61,6 @@ public class UserListController extends HttpServlet {
             if (pageId2 >= listOfUsers1.size()) {
                 pageId2=listOfUsers1.size();
             }
-            System.out.println(pageId+"  pagination "+pageId2);
             List<User> listOfUsers = listOfUsers1.subList(pageId,pageId2 );
             session.setAttribute("listOfUsers", listOfUsers);
             request.setAttribute("userRole", user.getRoleId());

@@ -6,9 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15044807-63a2-4fd1-817e-77a94e9c2861" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../sql/database.sql" afterDir="false" />
-    </list>
+    <list default="true" id="15044807-63a2-4fd1-817e-77a94e9c2861" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +18,7 @@
       <list>
         <option value="CSS File" />
         <option value="Jsp File" />
+        <option value="JavaScript File" />
         <option value="Class" />
       </list>
     </option>
@@ -40,14 +39,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/css" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Heros\Desktop\usermanagement\New folder\UserManagement-master\src\main\webapp" />
       <recent name="C:\Users\Heros\Desktop\usermanagement\New folder\UserManagement-master\src\main\webapp\css" />
+      <recent name="C:\Users\Heros\Desktop\usermanagement\New folder\UserManagement-master\src\main\webapp" />
       <recent name="C:\Users\Heros\Desktop\usermanagement\New folder\UserManagement-master\src\main\webapp\images" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -187,7 +186,11 @@
       <workItem from="1599529213793" duration="42725000" />
       <workItem from="1599615188435" duration="3166000" />
       <workItem from="1599623961746" duration="30925000" />
-      <workItem from="1599700325478" duration="24143000" />
+      <workItem from="1599700325478" duration="35076000" />
+      <workItem from="1599788026466" duration="594000" />
+      <workItem from="1599789131574" duration="45107000" />
+      <workItem from="1599875595146" duration="24757000" />
+      <workItem from="1599913082662" duration="24530000" />
     </task>
     <servers />
   </component>
@@ -214,6 +217,11 @@
           <url>file://$PROJECT_DIR$/src/main/webapp/forgotPassword.jsp</url>
           <line>6</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/bridgelabz/usermanagement/dao/LoginDAO.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

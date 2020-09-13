@@ -20,7 +20,7 @@
                 <div class="title-name">New User</div>
                 <div class="title-link">
                     <i style="margin-left: 50%" class="fa fa-home"></i>
-                    <a class="home-icon" href="dashboard1.jsp">Home</a>
+                    <a class="home-icon" href="dashboard.jsp">Home</a>
                     <a> / NewUser</a>
                 </div>
             </div>

@@ -22,7 +22,15 @@ public class User {
     private int roleId;
     private String image;
     private String creator_stamp;
+    private int loginAttempts;
 
+    public int getLoginAttempts() {
+        return loginAttempts;
+    }
+
+    public void setLoginAttempts(int loginAttempts) {
+        this.loginAttempts = loginAttempts;
+    }
 
     public String getCreator_stamp() {
         return creator_stamp;
@@ -189,7 +197,34 @@ public class User {
         this.roleId = roleId;
     }
 
+
     public int getUser_id() {
         return user_id;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "user_id=" + user_id +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", gender='" + gender + '\'' +
+                ", country='" + country + '\'' +
+                ", mobileNumber=" + mobileNumber +
+                ", parentNumber=" + parentNumber +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", status='" + status + '\'' +
+                ", roleId=" + roleId +
+                ", image='" + image + '\'' +
+                ", creator_stamp='" + creator_stamp + '\'' +
+                ", creator_user='" + creator_user + '\'' +
+                '}';
+    }
 }
+
+

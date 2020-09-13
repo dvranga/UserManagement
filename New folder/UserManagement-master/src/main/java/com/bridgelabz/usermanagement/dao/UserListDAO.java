@@ -43,6 +43,7 @@ public class UserListDAO {
                 Timestamp creator_stamp = resultSet.getTimestamp("creator_stamp");
                 user.setCreator_stamp((getRestrationTime(dateFormat.format(creator_stamp))));
                 String creator_user = resultSet.getString("creator_user");
+                user.setCreator_user(creator_user);
                 InputStream inputStream=image.getBinaryStream();
                 ByteArrayOutputStream outputStream=new ByteArrayOutputStream();
                 byte[] buffer=new byte[4096];

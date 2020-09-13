@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,6 +28,7 @@ public class DashboardDAO {
     public static int getInActiveRecords() {
         return (int) listOfUsers.stream().filter((user) -> user.getStatus().equals("InActive")).count();
     }
+
 
     public static double getMalePercentage() {
         double count = listOfUsers.stream().filter((user) -> user.getGender().equals("M")).count();
@@ -52,7 +54,6 @@ public class DashboardDAO {
         topLocation.add(new Location("Australia", (int) listOfUsers.stream().filter((user) -> user.getCountry().equals("Australia")).count()));
         topLocation.add(new Location("Srilanka", (int) listOfUsers.stream().filter((user) -> user.getCountry().equals("Srilanka")).count()));
         topLocation = topLocation.stream().sorted((location1, location2) -> location2.getUsersCount() - location1.getUsersCount()).collect(Collectors.toList());
-        System.out.println(topLocation+" topLocation ****************************************************");
         return topLocation.subList(0, 3);
     }
 
@@ -77,4 +78,6 @@ public class DashboardDAO {
         }
         return null;
     }
+
+
 }

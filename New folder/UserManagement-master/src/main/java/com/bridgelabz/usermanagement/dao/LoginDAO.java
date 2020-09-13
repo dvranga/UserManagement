@@ -12,6 +12,7 @@ import java.util.Base64;
 
 public class LoginDAO {
 
+    int count=0;
     public static ArrayList  getPermissions(int userId, int menuId){
         DataBaseConfiguration connection= new DataBaseConfiguration();
         ArrayList permissionList=new ArrayList(4);
@@ -36,21 +37,33 @@ public class LoginDAO {
     }
 
 
-    public static User validate(User user) {
+    public static User validate(String username,String password) {
         DataBaseConfiguration connection=new DataBaseConfiguration();
         int id=0;
-
+        User user=null;
         try {
             PreparedStatement preparedStatement = connection.getConnection().prepareStatement("select * from user_details where user_name=? and password=?");
-            preparedStatement.setString(1, user.getUserName());
-            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
             ResultSet resultSet= preparedStatement.executeQuery();
             if(resultSet.next()){
+                 user=new User();
                 user.setUser_id(resultSet.getInt("user_id"));
                 user.setFirstName(resultSet.getString("first_name"));
                 user.setMiddleName(resultSet.getString("middle_name"));
                 user.setLastName(resultSet.getString("last_name"));
+                user.setUserName(resultSet.getString("user_name"));
                 user.setRoleId(resultSet.getInt("role_id"));
+                Blob image = resultSet.getBlob("image");
+                InputStream binaryStream = image.getBinaryStream();
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                byte[] bytes = new byte[4096];
+                int byteRead=-1;
+                while ((byteRead = binaryStream.read(bytes)) != -1) {
+                    outputStream.write(bytes,0,byteRead);
+                }
+                byte[] toByteArray = outputStream.toByteArray();
+                user.setImage(Base64.getEncoder().encodeToString(toByteArray));
             }
         } catch (SQLException | IOException throwables) {
             throwables.printStackTrace();
