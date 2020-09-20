@@ -15,5 +15,4 @@ CREATE TABLE `user_details` (
   `user_role` varchar(6) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
 );
-
 INSERT INTO `user_management`.`user_details` (`user_id`, `first_name`, `middle_name`, `last_name`, `date_of_birth`, `gender`, `country`, `phone`, `phone_ext`, `email`, `address`, `user_name`, `password`, `user_role`) VALUES ('1', 'ranganath', 'vatti', 'devanga', '1996/07/01', 'male', 'india', '7483247032', '6309609657', 'devangmranganth@gmail.com', 'gorantla', 'ranganath', '@Reset1998', 'admin');
